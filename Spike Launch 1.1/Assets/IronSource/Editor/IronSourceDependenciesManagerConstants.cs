@@ -6,13 +6,15 @@
     internal const string ANDROID = "Android";
     internal const string IOS = "iOS";
     internal const string IRONSOURCE = "ironsource";
+    internal const string UNITYADS = "unityads";
     internal const string NONE = "none";
 
     //path const
-    internal const string IRONSOURCE_SDK_INFO = "http://ssa.public.s3.amazonaws.com/Integration-Manager/IronSourceSDKInfo.json";
-    internal const string IRONSOURCE_SDK_XML_LINKS = "http://ssa.public.s3.amazonaws.com/Integration-Manager/IronSourceSDKLinks.json";
+    internal const string IRONSOURCE_SDK_INFO = "https://s3.amazonaws.com/ssa.public/Integration-Manager/IronSourceSDKInfo.json";
+    internal const string IRONSOURCE_SDK_XML_LINKS = "https://s3.amazonaws.com/ssa.public/Integration-Manager/IronSourceSDKLinks.json";
     internal const string IRONSOURCE_DOWNLOAD_DIR = "Assets/IronSource/Editor/";
     internal const string IRONSOURCE_XML = "IronSourceSDKDependencies.xml";
+    internal const string UNITYADS_XML = "ISUnityAdsAdapterDependencies.xml";
     internal const string IRONSOURCE_XML_PATH = "dependencies/unityversion";
 
 
@@ -48,6 +50,6 @@
     internal const string TOOLTIP_ADAPTER_VERSION = "Adapter Version";
     internal const string NEW_NETWORK = " - New Network";
 
-    internal const string INTERGRATION_MANAGER_TITLE = "ironSource Integration Manager";
+    internal const string INTERGRATION_MANAGER_TITLE = "LevelPlay Integration Manager";
     internal const string ERROR_NOT_AVAILABLE = "SDK and adapters data are not available right now. Try again soon.";
 }

@@ -8,8 +8,8 @@ using System.Linq;
 public class IronSourceRewardedVideoEvents : MonoBehaviour
 {
 
-#if UNITY_ANDROID 
-
+#if UNITY_ANDROID
+    #pragma warning disable CS0067
     public static event Action<IronSourceError,IronSourceAdInfo> onAdShowFailedEvent;
     public static event Action <IronSourceAdInfo> onAdOpenedEvent;
     public static event Action <IronSourceAdInfo> onAdClosedEvent;
@@ -168,7 +168,7 @@ public class IronSourceRewardedVideoEvents : MonoBehaviour
 
         remove
         {
-            if (_onAdShowFailedEvent != null || _onAdShowFailedEvent.GetInvocationList().Contains(value))
+            if (_onAdShowFailedEvent != null && _onAdShowFailedEvent.GetInvocationList().Contains(value))
             {
                 _onAdShowFailedEvent -= value;
             }
@@ -200,7 +200,7 @@ public class IronSourceRewardedVideoEvents : MonoBehaviour
 
         remove
         {
-            if (_onAdOpenedEvent != null || _onAdOpenedEvent.GetInvocationList().Contains(value))
+            if (_onAdOpenedEvent != null && _onAdOpenedEvent.GetInvocationList().Contains(value))
             {
                 _onAdOpenedEvent -= value;
             }
@@ -230,7 +230,7 @@ public class IronSourceRewardedVideoEvents : MonoBehaviour
 
         remove
         {
-            if (_onAdClosedEvent != null || _onAdClosedEvent.GetInvocationList().Contains(value))
+            if (_onAdClosedEvent != null && _onAdClosedEvent.GetInvocationList().Contains(value))
             {
                 _onAdClosedEvent -= value;
             }
@@ -260,7 +260,7 @@ public class IronSourceRewardedVideoEvents : MonoBehaviour
 
         remove
         {
-            if (_onAdRewardedEvent != null || _onAdRewardedEvent.GetInvocationList().Contains(value))
+            if (_onAdRewardedEvent != null && _onAdRewardedEvent.GetInvocationList().Contains(value))
             {
                 _onAdRewardedEvent -= value;
             }
@@ -292,7 +292,7 @@ public class IronSourceRewardedVideoEvents : MonoBehaviour
 
         remove
         {
-            if (_onAdClickedEvent != null || _onAdClickedEvent.GetInvocationList().Contains(value))
+            if (_onAdClickedEvent != null && _onAdClickedEvent.GetInvocationList().Contains(value))
             {
                 _onAdClickedEvent -= value;
             }
@@ -324,7 +324,7 @@ public class IronSourceRewardedVideoEvents : MonoBehaviour
 
         remove
         {
-            if (_onAdAvailableEvent != null || _onAdAvailableEvent.GetInvocationList().Contains(value))
+            if (_onAdAvailableEvent != null && _onAdAvailableEvent.GetInvocationList().Contains(value))
             {
                 _onAdAvailableEvent -= value;
             }
@@ -354,7 +354,7 @@ public class IronSourceRewardedVideoEvents : MonoBehaviour
 
         remove
         {
-            if (_onAdUnavailableEvent != null || _onAdUnavailableEvent.GetInvocationList().Contains(value))
+            if (_onAdUnavailableEvent != null && _onAdUnavailableEvent.GetInvocationList().Contains(value))
             {
                 _onAdUnavailableEvent -= value;
             }
@@ -385,7 +385,7 @@ public class IronSourceRewardedVideoEvents : MonoBehaviour
 
         remove
         {
-            if (_onAdLoadFailedEvent != null || _onAdLoadFailedEvent.GetInvocationList().Contains(value))
+            if (_onAdLoadFailedEvent != null && _onAdLoadFailedEvent.GetInvocationList().Contains(value))
             {
                 _onAdLoadFailedEvent -= value;
             }
@@ -416,7 +416,7 @@ public class IronSourceRewardedVideoEvents : MonoBehaviour
 
         remove
         {
-            if (_onAdReadyEvent != null || _onAdReadyEvent.GetInvocationList().Contains(value))
+            if (_onAdReadyEvent != null && _onAdReadyEvent.GetInvocationList().Contains(value))
             {
                 _onAdReadyEvent -= value;
             }

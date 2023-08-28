@@ -5,27 +5,27 @@ using UnityEngine;
 public class IronSourceMenu : UnityEditor.Editor
 {
 
-   [MenuItem("IronSource/Documentation", false, 0)]
+   [MenuItem("Ads Mediation/Documentation", false, 0)]
     public static void Documentation()
     {
-        Application.OpenURL("https://developers.ironsrc.com/ironsource-mobile/unity/unity-plugin/");
+        Application.OpenURL("https://developers.is.com/ironsource-mobile/unity/unity-plugin/");
     }
 
    
-    [MenuItem("IronSource/SDK Change Log", false, 1)]
+    [MenuItem("Ads Mediation/SDK Change Log", false, 1)]
     public static void ChangeLog()
     {
-        Application.OpenURL("https://developers.ironsrc.com/ironsource-mobile/unity/sdk-change-log/");
+        Application.OpenURL("https://developers.is.com/ironsource-mobile/unity/sdk-change-log/");
     }
 
 
-    [MenuItem("IronSource/Integration Manager", false , 2)]
+    [MenuItem("Ads Mediation/Integration Manager", false , 2)]
     public static void SdkManagerProd()
     {
         IronSourceDependenciesManager.ShowISDependenciesManager();
     }
 
-    [MenuItem("IronSource/Developer Settings/IronSource Mediation Settings", false, 3)]
+    [MenuItem("Ads Mediation/Developer Settings/LevelPlay Mediation Settings", false, 3)]
     public static void mediationSettings()
     {
         string path = "Assets/IronSource/Resources";
@@ -48,7 +48,7 @@ public class IronSourceMenu : UnityEditor.Editor
         Selection.activeObject = ironSourceMediationSettings;
     }
 
-    [MenuItem("IronSource/Developer Settings/Mediated Network Settings", false, 4)]
+    [MenuItem("Ads Mediation/Developer Settings/Mediated Network Settings", false, 4)]
     public static void mediatedNetworkSettings()
     {
         string path = IronSourceConstants.IRONSOURCE_RESOURCES_PATH;

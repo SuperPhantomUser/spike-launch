@@ -84,6 +84,7 @@ public class Obstacle : MonoBehaviour
                     GameControl.crates++;
                     GameControl.obstaclePoints++;
                     if (PlayerPrefs.GetInt("SoundVolume") != -1 && PlayerPrefs.GetInt("CrowdedMode") == 0) GameControl.BreakSource.Play();
+                    GameControl.timer.Stop();
                 }
                 else {
                     GameControl.score += 2;
@@ -129,6 +130,7 @@ public class Obstacle : MonoBehaviour
                 GameObject NewBreak = Instantiate(Break, transform.position, Quaternion.identity);
                 NewBreak.SetActive(true);
                 if (PlayerPrefs.GetInt("SoundVolume") != -1 && PlayerPrefs.GetInt("CrowdedMode") == 0) GameControl.BreakSource.Play();
+                GameControl.timer.Stop();
                 Destroy(this.gameObject);
             }
             if (id == 2) {
@@ -159,6 +161,7 @@ public class Obstacle : MonoBehaviour
                 GameObject NewBreak = Instantiate(Break, transform.position, Quaternion.identity);
                 NewBreak.SetActive(true);
                 if (PlayerPrefs.GetInt("SoundVolume") != -1 && PlayerPrefs.GetInt("CrowdedMode") == 0) GameControl.BreakSource.Play();
+                GameControl.timer.Stop();
                 Destroy(this.gameObject);
             }
             if (id == 2) {

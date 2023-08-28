@@ -22,7 +22,17 @@ public class MissionBoard : MonoBehaviour
     public GameObject AdMenu;
     public GameObject RateMenu;
 
+    public TMPro.TextMeshProUGUI CoinText;
+    public TMPro.TextMeshProUGUI StreakText;
+    public TMPro.TextMeshProUGUI RewardText;
+
+    private int column;
+
     public Data Data;
+
+    public GameObject[] objectList;
+
+    public GameObject Scroll;
 
     // Start is called before the first frame update
     void Start()
@@ -179,10 +189,13 @@ public class MissionBoard : MonoBehaviour
         */
 
         boardOpen = false;
+        column = 0;
 
         Data.SpikeData data = Data.GetFromFile();
         string todayDate = DateTime.Now.Date.ToString("d");
         //data.lastChecked = "8/8/2023";
+        //data.missionStreak = 0;
+        //data.missionTier = 0;
         if (data.lastChecked != todayDate)
         {
             data.dailyMissions = new string[] { "-1", "-1", "-1" };
@@ -202,12 +215,17 @@ public class MissionBoard : MonoBehaviour
             if (!data.claimedToday)
             {
                 data.missionStreak = 0;
-                if (data.missionTier > 0) data.missionTier -= 1;
+                if (data.missionTier > 0) data.missionTier -= 0;
             }
+            if (data.missionStreak >= 2 && data.missionTier == 0) data.missionTier = 1;
+            if (data.missionStreak >= 5 && data.missionTier == 1) data.missionTier = 2;
+            if (data.missionStreak >= 10 && data.missionTier == 2) data.missionTier = 3;
             data.claimedToday = false;
             GenerateMissions(data);
         }
         else UpdateMissions(data);
+        UpdateBoard(column);
+        UpdateAchievements();
     }
 
     // Update is called once per frame
@@ -287,6 +305,11 @@ public class MissionBoard : MonoBehaviour
         }
 
         data.dailyMissions = new string[] { missionPicked1, missionPicked2, missionPicked3 };
+        if (data.missionTier == 0) RewardText.text = "Reward: $350";
+        if (data.missionTier == 1) RewardText.text = "Reward: $400";
+        if (data.missionTier == 2) RewardText.text = "Reward: $450";
+        if (data.missionTier == 3) RewardText.text = "Reward: $500";
+        StreakText.text = $"Daily streak: {data.missionStreak}";
         Data.SaveToFile(data);
     }
 
@@ -337,11 +360,38 @@ public class MissionBoard : MonoBehaviour
             else ThisMission = Mission3;
             SetMission(ThisMission, id, missions[data.missionTier, id, 0], progress);
         }
+        if (data.completedMissions[0] && data.completedMissions[1] && data.completedMissions[2] && !data.claimedToday)
+        {
+            data.claimedToday = true;
+            data.missionStreak += 1;
+            int reward = 0;
+            if (data.missionTier == 0) reward = 350;
+            if (data.missionTier == 1) reward = 400;
+            if (data.missionTier == 2) reward = 450;
+            if (data.missionTier == 3) reward = 500;
+            data.coins += reward;
+            CoinText.text = $"${data.coins}";
+        }
+
+        if (data.claimedToday)
+        {
+            if (data.missionTier == 0) RewardText.text = "Reward: $350 (Collected!)";
+            if (data.missionTier == 1) RewardText.text = "Reward: $400 (Collected!)";
+            if (data.missionTier == 2) RewardText.text = "Reward: $450 (Collected!)";
+            if (data.missionTier == 3) RewardText.text = "Reward: $500 (Collected!)";
+        } else
+        {
+            if (data.missionTier == 0) RewardText.text = "Reward: $350";
+            if (data.missionTier == 1) RewardText.text = "Reward: $400";
+            if (data.missionTier == 2) RewardText.text = "Reward: $450";
+            if (data.missionTier == 3) RewardText.text = "Reward: $500";
+        }
+        StreakText.text = $"Daily streak: {data.missionStreak}";
+        Data.SaveToFile(data);
     }
 
     void SetMission(GameObject Mission, int id, string text, string progress)
     {
-        Debug.Log("A");
         Mission.transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = text;
         Mission.transform.GetChild(2).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = progress;
         GameObject iconObj = Mission.transform.GetChild(1).gameObject;
@@ -357,5 +407,60 @@ public class MissionBoard : MonoBehaviour
         else if (id == 13) icon = 8;
         else if (id == 14) icon = 9;
         iconObj.GetComponent<Image>().sprite = icons[icon];
+    }
+
+    public void UpdateBoard(int col)
+    {
+        column = col;
+        if (column == 0)
+        {
+            Mission1.SetActive(true);
+            Mission2.SetActive(true);
+            Mission3.SetActive(true);
+            RewardText.gameObject.SetActive(true);
+            StreakText.gameObject.SetActive(true);
+            Scroll.SetActive(false);
+        }
+        else
+        {
+            UpdateAchievements();
+            Mission1.SetActive(false);
+            Mission2.SetActive(false);
+            Mission3.SetActive(false);
+            RewardText.gameObject.SetActive(false);
+            StreakText.gameObject.SetActive(false);
+            Scroll.SetActive(true);
+        }
+    }
+
+    void UpdateAchievements()
+    {
+        Data.SpikeData data = Data.GetFromFile();
+        for (int i = 0; i < 14; i++)
+        {
+            GameObject Ach = objectList[i];
+            TMPro.TextMeshProUGUI achText = Ach.transform.Find("Status").GetComponent<TMPro.TextMeshProUGUI>();
+            TMPro.TextMeshProUGUI descText = Ach.transform.Find("Desc").GetComponent<TMPro.TextMeshProUGUI>();
+            if (descText.text.Contains("Storm") && !data.maps[0]) descText.text = descText.text.Replace("Storm", "the 2nd map");
+            if (descText.text.Contains("Ocean") && !data.maps[1]) descText.text = descText.text.Replace("Ocean", "the 3rd map");
+            if (descText.text.Contains("Space") && !data.maps[2]) descText.text = descText.text.Replace("Space", "the 4th map");
+            if (data.achievements[i] == true)
+            {
+                achText.text = "Complete!";
+                if (i == 13)
+                {
+                    descText.text = "Knock the asterisk off the title";
+                    Ach.transform.Find("Icon").GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+                }
+            }
+            else
+            {
+                if (i == 6) achText.text = $"{data.lifetime}/5000 points";
+                else if (i == 7) achText.text = $"{data.lifetimePowerups}/100 powerups";
+                else achText.text = "Incomplete";
+                Ach.GetComponent<Image>().color = new Color(0.8301887f, 0.8301887f, 0.8301887f, 1f);
+                Ach.transform.Find("Icon").GetComponent<Image>().color = new Color(0f, 0f, 0f, 1f);
+            }
+        }
     }
 }

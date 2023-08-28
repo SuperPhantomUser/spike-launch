@@ -461,7 +461,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "SuperPhantomUser:\nLead Designer & Developer\n\ndot\u1E8A742:\nDesigner
-    & Sprite Artist\n\nMunster, the Local Hobo:\nDirector and Marketing"
+    & Sprite Artist\n\nMunster, the Local Hobo:\nDirector & Marketing"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fba7fc710960af84784332a1863259b9, type: 2}
   m_sharedMaterial: {fileID: 2355135005819507557, guid: fba7fc710960af84784332a1863259b9, type: 2}
@@ -1068,7 +1068,10 @@ MonoBehaviour:
 
     JustInvoke
 
-    InspectorJ'
+    InspectorJ
+
+    Elli
+    Shoe'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d4a406c35bb6fc84bba5389d216d82a3, type: 2}
   m_sharedMaterial: {fileID: -8328557808397190659, guid: d4a406c35bb6fc84bba5389d216d82a3, type: 2}
@@ -1204,7 +1207,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sound Effects
+  m_text: Assets
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fba7fc710960af84784332a1863259b9, type: 2}
   m_sharedMaterial: {fileID: 2355135005819507557, guid: fba7fc710960af84784332a1863259b9, type: 2}

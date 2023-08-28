@@ -63,7 +63,7 @@ public class AdsInitializer : MonoBehaviour
 
     private void SdkInitializationCompletedEvent(){
         Debug.Log("Spike Launch: Ad Initialization Complete");
-        LoadAd();
+        //LoadAd();
     }
  
     // Load content to the Ad Unit: 

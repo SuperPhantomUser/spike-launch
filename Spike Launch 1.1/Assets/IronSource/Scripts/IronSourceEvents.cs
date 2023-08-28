@@ -14,61 +14,104 @@ public class IronSourceEvents : MonoBehaviour
 
 #endif
 
-#if UNITY_ANDROID 
-
+#if UNITY_ANDROID
+#pragma warning disable CS0067
     public static event Action onSdkInitializationCompletedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action<IronSourceError> onRewardedVideoAdShowFailedEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action onRewardedVideoAdOpenedEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action onRewardedVideoAdClosedEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action onRewardedVideoAdStartedEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action onRewardedVideoAdEndedEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action<IronSourcePlacement> onRewardedVideoAdRewardedEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action<IronSourcePlacement> onRewardedVideoAdClickedEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action<bool> onRewardedVideoAvailabilityChangedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action<IronSourceError> onRewardedVideoAdLoadFailedEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action onRewardedVideoAdReadyEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string> onRewardedVideoAdOpenedDemandOnlyEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string> onRewardedVideoAdClosedDemandOnlyEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string> onRewardedVideoAdLoadedDemandOnlyEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string> onRewardedVideoAdRewardedDemandOnlyEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string, IronSourceError> onRewardedVideoAdShowFailedDemandOnlyEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string> onRewardedVideoAdClickedDemandOnlyEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string, IronSourceError> onRewardedVideoAdLoadFailedDemandOnlyEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
     public static event Action onInterstitialAdReadyEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
     public static event Action<IronSourceError> onInterstitialAdLoadFailedEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
     public static event Action onInterstitialAdOpenedEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
     public static event Action onInterstitialAdClosedEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
     public static event Action onInterstitialAdShowSucceededEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
     public static event Action<IronSourceError> onInterstitialAdShowFailedEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
     public static event Action onInterstitialAdClickedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string> onInterstitialAdReadyDemandOnlyEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string> onInterstitialAdOpenedDemandOnlyEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string> onInterstitialAdClosedDemandOnlyEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string, IronSourceError> onInterstitialAdLoadFailedDemandOnlyEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string> onInterstitialAdClickedDemandOnlyEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string, IronSourceError> onInterstitialAdShowFailedDemandOnlyEvent;
 
+    [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
     public static event Action<bool> onOfferwallAvailableEvent;
+    [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
     public static event Action onOfferwallOpenedEvent;
+    [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
     public static event Action<Dictionary<string, object>> onOfferwallAdCreditedEvent;
+    [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
     public static event Action<IronSourceError> onGetOfferwallCreditsFailedEvent;
+    [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
     public static event Action onOfferwallClosedEvent;
+    [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
     public static event Action<IronSourceError> onOfferwallShowFailedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
     public static event Action onBannerAdLoadedEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
     public static event Action onBannerAdLeftApplicationEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
     public static event Action onBannerAdScreenDismissedEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
     public static event Action onBannerAdScreenPresentedEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
     public static event Action onBannerAdClickedEvent;
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
     public static event Action<IronSourceError> onBannerAdLoadFailedEvent;
 
     public static event Action<string> onSegmentReceivedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use OnImpressionDataReady instead.")]
     public static event Action<IronSourceImpressionData> onImpressionSuccessEvent;
 #endif
 
@@ -76,7 +119,7 @@ public class IronSourceEvents : MonoBehaviour
     private const string ERROR_DESCRIPTION = "error_description";
     private const string INSTANCE_ID_KEY = "instanceId";
     private const string PLACEMENT_KEY = "placement";
-
+    #pragma warning disable CS0067
     public static event Action<IronSourceImpressionData> onImpressionDataReadyEvent;
 
 #if UNITY_ANDROID
@@ -125,7 +168,6 @@ public class IronSourceEvents : MonoBehaviour
 
 
 #if UNITY_ANDROID && !UNITY_EDITOR
-
     private void registerInitializationEvents()
     {
         initializationAndroid.OnSdkInitializationCompletedEvent += () =>
@@ -454,6 +496,7 @@ public class IronSourceEvents : MonoBehaviour
     {
         impressionDataAndroid.OnImpressionSuccess += (impressionData) =>
         {
+
             if (onImpressionSuccessEvent != null)
             {
                 IronSourceEventsDispatcher.executeAction(() =>
@@ -701,7 +744,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onSdkInitializationCompletedEvent != null || _onSdkInitializationCompletedEvent.GetInvocationList().Contains(value))
+            if (_onSdkInitializationCompletedEvent != null && _onSdkInitializationCompletedEvent.GetInvocationList().Contains(value))
             {
                 _onSdkInitializationCompletedEvent -= value;
             }
@@ -719,6 +762,7 @@ public class IronSourceEvents : MonoBehaviour
     // ******************************* Rewarded Video Events *******************************
     private static event Action<IronSourceError> _onRewardedVideoAdShowFailedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action<IronSourceError> onRewardedVideoAdShowFailedEvent
     {
         add
@@ -731,7 +775,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onRewardedVideoAdShowFailedEvent != null || _onRewardedVideoAdShowFailedEvent.GetInvocationList().Contains(value))
+            if (_onRewardedVideoAdShowFailedEvent != null && _onRewardedVideoAdShowFailedEvent.GetInvocationList().Contains(value))
             {
                 _onRewardedVideoAdShowFailedEvent -= value;
             }
@@ -749,6 +793,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action _onRewardedVideoAdOpenedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action onRewardedVideoAdOpenedEvent
     {
         add
@@ -761,7 +806,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onRewardedVideoAdOpenedEvent != null || _onRewardedVideoAdOpenedEvent.GetInvocationList().Contains(value))
+            if (_onRewardedVideoAdOpenedEvent != null && _onRewardedVideoAdOpenedEvent.GetInvocationList().Contains(value))
             {
                 _onRewardedVideoAdOpenedEvent -= value;
             }
@@ -778,6 +823,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action _onRewardedVideoAdClosedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action onRewardedVideoAdClosedEvent
     {
         add
@@ -790,7 +836,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onRewardedVideoAdClosedEvent != null || _onRewardedVideoAdClosedEvent.GetInvocationList().Contains(value))
+            if (_onRewardedVideoAdClosedEvent != null && _onRewardedVideoAdClosedEvent.GetInvocationList().Contains(value))
             {
                 _onRewardedVideoAdClosedEvent -= value;
             }
@@ -807,6 +853,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action _onRewardedVideoAdStartedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action onRewardedVideoAdStartedEvent
     {
         add
@@ -819,7 +866,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onRewardedVideoAdStartedEvent != null || _onRewardedVideoAdStartedEvent.GetInvocationList().Contains(value))
+            if (_onRewardedVideoAdStartedEvent != null && _onRewardedVideoAdStartedEvent.GetInvocationList().Contains(value))
             {
                 _onRewardedVideoAdStartedEvent -= value;
             }
@@ -836,6 +883,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action _onRewardedVideoAdEndedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action onRewardedVideoAdEndedEvent
     {
         add
@@ -848,7 +896,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onRewardedVideoAdEndedEvent != null || _onRewardedVideoAdEndedEvent.GetInvocationList().Contains(value))
+            if (_onRewardedVideoAdEndedEvent != null && _onRewardedVideoAdEndedEvent.GetInvocationList().Contains(value))
             {
                 _onRewardedVideoAdEndedEvent -= value;
             }
@@ -865,6 +913,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<IronSourcePlacement> _onRewardedVideoAdRewardedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action<IronSourcePlacement> onRewardedVideoAdRewardedEvent
     {
         add
@@ -877,7 +926,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onRewardedVideoAdRewardedEvent != null || _onRewardedVideoAdRewardedEvent.GetInvocationList().Contains(value))
+            if (_onRewardedVideoAdRewardedEvent != null && _onRewardedVideoAdRewardedEvent.GetInvocationList().Contains(value))
             {
                 _onRewardedVideoAdRewardedEvent -= value;
             }
@@ -895,6 +944,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<IronSourcePlacement> _onRewardedVideoAdClickedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action<IronSourcePlacement> onRewardedVideoAdClickedEvent
     {
         add
@@ -907,7 +957,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onRewardedVideoAdClickedEvent != null || _onRewardedVideoAdClickedEvent.GetInvocationList().Contains(value))
+            if (_onRewardedVideoAdClickedEvent != null && _onRewardedVideoAdClickedEvent.GetInvocationList().Contains(value))
             {
                 _onRewardedVideoAdClickedEvent -= value;
             }
@@ -925,6 +975,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<bool> _onRewardedVideoAvailabilityChangedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action<bool> onRewardedVideoAvailabilityChangedEvent
     {
         add
@@ -937,7 +988,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onRewardedVideoAvailabilityChangedEvent != null || _onRewardedVideoAvailabilityChangedEvent.GetInvocationList().Contains(value))
+            if (_onRewardedVideoAvailabilityChangedEvent != null && _onRewardedVideoAvailabilityChangedEvent.GetInvocationList().Contains(value))
             {
                 _onRewardedVideoAvailabilityChangedEvent -= value;
             }
@@ -955,6 +1006,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<string> _onRewardedVideoAdLoadedDemandOnlyEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string> onRewardedVideoAdLoadedDemandOnlyEvent
     {
         add
@@ -967,7 +1019,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onRewardedVideoAdLoadedDemandOnlyEvent != null || _onRewardedVideoAdLoadedDemandOnlyEvent.GetInvocationList().Contains(value))
+            if (_onRewardedVideoAdLoadedDemandOnlyEvent != null && _onRewardedVideoAdLoadedDemandOnlyEvent.GetInvocationList().Contains(value))
             {
                 _onRewardedVideoAdLoadedDemandOnlyEvent -= value;
             }
@@ -984,6 +1036,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<string, IronSourceError> _onRewardedVideoAdLoadFailedDemandOnlyEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string, IronSourceError> onRewardedVideoAdLoadFailedDemandOnlyEvent
     {
         add
@@ -996,7 +1049,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onRewardedVideoAdLoadFailedDemandOnlyEvent != null || _onRewardedVideoAdLoadFailedDemandOnlyEvent.GetInvocationList().Contains(value))
+            if (_onRewardedVideoAdLoadFailedDemandOnlyEvent != null && _onRewardedVideoAdLoadFailedDemandOnlyEvent.GetInvocationList().Contains(value))
             {
                 _onRewardedVideoAdLoadFailedDemandOnlyEvent -= value;
             }
@@ -1016,6 +1069,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<string> _onRewardedVideoAdOpenedDemandOnlyEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string> onRewardedVideoAdOpenedDemandOnlyEvent
     {
         add
@@ -1028,7 +1082,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onRewardedVideoAdOpenedDemandOnlyEvent != null || _onRewardedVideoAdOpenedDemandOnlyEvent.GetInvocationList().Contains(value))
+            if (_onRewardedVideoAdOpenedDemandOnlyEvent != null && _onRewardedVideoAdOpenedDemandOnlyEvent.GetInvocationList().Contains(value))
             {
                 _onRewardedVideoAdOpenedDemandOnlyEvent -= value;
             }
@@ -1045,6 +1099,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<string> _onRewardedVideoAdClosedDemandOnlyEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string> onRewardedVideoAdClosedDemandOnlyEvent
     {
         add
@@ -1057,7 +1112,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onRewardedVideoAdClosedDemandOnlyEvent != null || _onRewardedVideoAdClosedDemandOnlyEvent.GetInvocationList().Contains(value))
+            if (_onRewardedVideoAdClosedDemandOnlyEvent != null && _onRewardedVideoAdClosedDemandOnlyEvent.GetInvocationList().Contains(value))
             {
                 _onRewardedVideoAdClosedDemandOnlyEvent -= value;
             }
@@ -1074,6 +1129,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<string> _onRewardedVideoAdRewardedDemandOnlyEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string> onRewardedVideoAdRewardedDemandOnlyEvent
     {
         add
@@ -1086,7 +1142,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onRewardedVideoAdRewardedDemandOnlyEvent != null || _onRewardedVideoAdRewardedDemandOnlyEvent.GetInvocationList().Contains(value))
+            if (_onRewardedVideoAdRewardedDemandOnlyEvent != null && _onRewardedVideoAdRewardedDemandOnlyEvent.GetInvocationList().Contains(value))
             {
                 _onRewardedVideoAdRewardedDemandOnlyEvent -= value;
             }
@@ -1103,6 +1159,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<string, IronSourceError> _onRewardedVideoAdShowFailedDemandOnlyEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string, IronSourceError> onRewardedVideoAdShowFailedDemandOnlyEvent
     {
         add
@@ -1115,7 +1172,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onRewardedVideoAdShowFailedDemandOnlyEvent != null || _onRewardedVideoAdShowFailedDemandOnlyEvent.GetInvocationList().Contains(value))
+            if (_onRewardedVideoAdShowFailedDemandOnlyEvent != null && _onRewardedVideoAdShowFailedDemandOnlyEvent.GetInvocationList().Contains(value))
             {
                 _onRewardedVideoAdShowFailedDemandOnlyEvent -= value;
             }
@@ -1135,6 +1192,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<string> _onRewardedVideoAdClickedDemandOnlyEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string> onRewardedVideoAdClickedDemandOnlyEvent
     {
         add
@@ -1147,7 +1205,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onRewardedVideoAdClickedDemandOnlyEvent != null || _onRewardedVideoAdClickedDemandOnlyEvent.GetInvocationList().Contains(value))
+            if (_onRewardedVideoAdClickedDemandOnlyEvent != null && _onRewardedVideoAdClickedDemandOnlyEvent.GetInvocationList().Contains(value))
             {
                 _onRewardedVideoAdClickedDemandOnlyEvent -= value;
             }
@@ -1175,7 +1233,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onSegmentReceivedEvent != null || _onSegmentReceivedEvent.GetInvocationList().Contains(value))
+            if (_onSegmentReceivedEvent != null && _onSegmentReceivedEvent.GetInvocationList().Contains(value))
             {
                 _onSegmentReceivedEvent -= value;
             }
@@ -1192,6 +1250,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action _onInterstitialAdReadyEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
     public static event Action onInterstitialAdReadyEvent
     {
         add
@@ -1204,7 +1263,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onInterstitialAdReadyEvent != null || _onInterstitialAdReadyEvent.GetInvocationList().Contains(value))
+            if (_onInterstitialAdReadyEvent != null && _onInterstitialAdReadyEvent.GetInvocationList().Contains(value))
             {
                 _onInterstitialAdReadyEvent -= value;
             }
@@ -1219,6 +1278,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<IronSourceError> _onInterstitialAdLoadFailedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
     public static event Action<IronSourceError> onInterstitialAdLoadFailedEvent
     {
         add
@@ -1231,7 +1291,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onInterstitialAdLoadFailedEvent != null || _onInterstitialAdLoadFailedEvent.GetInvocationList().Contains(value))
+            if (_onInterstitialAdLoadFailedEvent != null && _onInterstitialAdLoadFailedEvent.GetInvocationList().Contains(value))
             {
                 _onInterstitialAdLoadFailedEvent -= value;
             }
@@ -1249,6 +1309,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action _onInterstitialAdOpenedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
     public static event Action onInterstitialAdOpenedEvent
     {
         add
@@ -1261,7 +1322,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onInterstitialAdOpenedEvent != null || _onInterstitialAdOpenedEvent.GetInvocationList().Contains(value))
+            if (_onInterstitialAdOpenedEvent != null && _onInterstitialAdOpenedEvent.GetInvocationList().Contains(value))
             {
                 _onInterstitialAdOpenedEvent -= value;
             }
@@ -1278,6 +1339,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action _onInterstitialAdClosedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
     public static event Action onInterstitialAdClosedEvent
     {
         add
@@ -1290,7 +1352,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onInterstitialAdClosedEvent != null || _onInterstitialAdClosedEvent.GetInvocationList().Contains(value))
+            if (_onInterstitialAdClosedEvent != null && _onInterstitialAdClosedEvent.GetInvocationList().Contains(value))
             {
                 _onInterstitialAdClosedEvent -= value;
             }
@@ -1307,6 +1369,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action _onInterstitialAdShowSucceededEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
     public static event Action onInterstitialAdShowSucceededEvent
     {
         add
@@ -1319,7 +1382,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onInterstitialAdShowSucceededEvent != null || _onInterstitialAdShowSucceededEvent.GetInvocationList().Contains(value))
+            if (_onInterstitialAdShowSucceededEvent != null && _onInterstitialAdShowSucceededEvent.GetInvocationList().Contains(value))
             {
                 _onInterstitialAdShowSucceededEvent -= value;
             }
@@ -1336,6 +1399,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<IronSourceError> _onInterstitialAdShowFailedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
     public static event Action<IronSourceError> onInterstitialAdShowFailedEvent
     {
         add
@@ -1348,7 +1412,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onInterstitialAdShowFailedEvent != null || _onInterstitialAdShowFailedEvent.GetInvocationList().Contains(value))
+            if (_onInterstitialAdShowFailedEvent != null && _onInterstitialAdShowFailedEvent.GetInvocationList().Contains(value))
             {
                 _onInterstitialAdShowFailedEvent -= value;
             }
@@ -1366,6 +1430,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action _onInterstitialAdClickedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceInterstitialEvents listener instead.", false)]
     public static event Action onInterstitialAdClickedEvent
     {
         add
@@ -1378,7 +1443,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onInterstitialAdClickedEvent != null || _onInterstitialAdClickedEvent.GetInvocationList().Contains(value))
+            if (_onInterstitialAdClickedEvent != null && _onInterstitialAdClickedEvent.GetInvocationList().Contains(value))
             {
                 _onInterstitialAdClickedEvent -= value;
             }
@@ -1397,6 +1462,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<string> _onInterstitialAdReadyDemandOnlyEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string> onInterstitialAdReadyDemandOnlyEvent
     {
         add
@@ -1409,7 +1475,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onInterstitialAdReadyDemandOnlyEvent != null || _onInterstitialAdReadyDemandOnlyEvent.GetInvocationList().Contains(value))
+            if (_onInterstitialAdReadyDemandOnlyEvent != null && _onInterstitialAdReadyDemandOnlyEvent.GetInvocationList().Contains(value))
             {
                 _onInterstitialAdReadyDemandOnlyEvent -= value;
             }
@@ -1425,6 +1491,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<string, IronSourceError> _onInterstitialAdLoadFailedDemandOnlyEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string, IronSourceError> onInterstitialAdLoadFailedDemandOnlyEvent
     {
         add
@@ -1437,7 +1504,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onInterstitialAdLoadFailedDemandOnlyEvent != null || _onInterstitialAdLoadFailedDemandOnlyEvent.GetInvocationList().Contains(value))
+            if (_onInterstitialAdLoadFailedDemandOnlyEvent != null && _onInterstitialAdLoadFailedDemandOnlyEvent.GetInvocationList().Contains(value))
             {
                 _onInterstitialAdLoadFailedDemandOnlyEvent -= value;
             }
@@ -1457,6 +1524,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<string> _onInterstitialAdOpenedDemandOnlyEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string> onInterstitialAdOpenedDemandOnlyEvent
     {
         add
@@ -1469,7 +1537,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onInterstitialAdOpenedDemandOnlyEvent != null || _onInterstitialAdOpenedDemandOnlyEvent.GetInvocationList().Contains(value))
+            if (_onInterstitialAdOpenedDemandOnlyEvent != null && _onInterstitialAdOpenedDemandOnlyEvent.GetInvocationList().Contains(value))
             {
                 _onInterstitialAdOpenedDemandOnlyEvent -= value;
             }
@@ -1486,6 +1554,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<string> _onInterstitialAdClosedDemandOnlyEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string> onInterstitialAdClosedDemandOnlyEvent
     {
         add
@@ -1498,7 +1567,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onInterstitialAdClosedDemandOnlyEvent != null || _onInterstitialAdClosedDemandOnlyEvent.GetInvocationList().Contains(value))
+            if (_onInterstitialAdClosedDemandOnlyEvent != null && _onInterstitialAdClosedDemandOnlyEvent.GetInvocationList().Contains(value))
             {
                 _onInterstitialAdClosedDemandOnlyEvent -= value;
             }
@@ -1515,6 +1584,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<string, IronSourceError> _onInterstitialAdShowFailedDemandOnlyEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string, IronSourceError> onInterstitialAdShowFailedDemandOnlyEvent
     {
         add
@@ -1527,7 +1597,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onInterstitialAdShowFailedDemandOnlyEvent != null || _onInterstitialAdShowFailedDemandOnlyEvent.GetInvocationList().Contains(value))
+            if (_onInterstitialAdShowFailedDemandOnlyEvent != null && _onInterstitialAdShowFailedDemandOnlyEvent.GetInvocationList().Contains(value))
             {
                 _onInterstitialAdShowFailedDemandOnlyEvent -= value;
             }
@@ -1547,6 +1617,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<string> _onInterstitialAdClickedDemandOnlyEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0.1", false)]
     public static event Action<string> onInterstitialAdClickedDemandOnlyEvent
     {
         add
@@ -1559,7 +1630,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onInterstitialAdClickedDemandOnlyEvent != null || _onInterstitialAdClickedDemandOnlyEvent.GetInvocationList().Contains(value))
+            if (_onInterstitialAdClickedDemandOnlyEvent != null && _onInterstitialAdClickedDemandOnlyEvent.GetInvocationList().Contains(value))
             {
                 _onInterstitialAdClickedDemandOnlyEvent -= value;
             }
@@ -1578,6 +1649,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action _onOfferwallOpenedEvent;
 
+    [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
     public static event Action onOfferwallOpenedEvent
     {
         add
@@ -1590,7 +1662,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onOfferwallOpenedEvent != null || _onOfferwallOpenedEvent.GetInvocationList().Contains(value))
+            if (_onOfferwallOpenedEvent != null && _onOfferwallOpenedEvent.GetInvocationList().Contains(value))
             {
                 _onOfferwallOpenedEvent -= value;
             }
@@ -1607,6 +1679,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<IronSourceError> _onOfferwallShowFailedEvent;
 
+    [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
     public static event Action<IronSourceError> onOfferwallShowFailedEvent
     {
         add
@@ -1619,7 +1692,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onOfferwallShowFailedEvent != null || _onOfferwallShowFailedEvent.GetInvocationList().Contains(value))
+            if (_onOfferwallShowFailedEvent != null && _onOfferwallShowFailedEvent.GetInvocationList().Contains(value))
             {
                 _onOfferwallShowFailedEvent -= value;
             }
@@ -1637,6 +1710,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action _onOfferwallClosedEvent;
 
+    [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
     public static event Action onOfferwallClosedEvent
     {
         add
@@ -1649,7 +1723,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onOfferwallClosedEvent != null || _onOfferwallClosedEvent.GetInvocationList().Contains(value))
+            if (_onOfferwallClosedEvent != null && _onOfferwallClosedEvent.GetInvocationList().Contains(value))
             {
                 _onOfferwallClosedEvent -= value;
             }
@@ -1666,6 +1740,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<IronSourceError> _onGetOfferwallCreditsFailedEvent;
 
+    [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
     public static event Action<IronSourceError> onGetOfferwallCreditsFailedEvent
     {
         add
@@ -1678,7 +1753,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onGetOfferwallCreditsFailedEvent != null || _onGetOfferwallCreditsFailedEvent.GetInvocationList().Contains(value))
+            if (_onGetOfferwallCreditsFailedEvent != null && _onGetOfferwallCreditsFailedEvent.GetInvocationList().Contains(value))
             {
                 _onGetOfferwallCreditsFailedEvent -= value;
             }
@@ -1697,6 +1772,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<Dictionary<string, object>> _onOfferwallAdCreditedEvent;
 
+    [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
     public static event Action<Dictionary<string, object>> onOfferwallAdCreditedEvent
     {
         add
@@ -1709,7 +1785,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onOfferwallAdCreditedEvent != null || _onOfferwallAdCreditedEvent.GetInvocationList().Contains(value))
+            if (_onOfferwallAdCreditedEvent != null && _onOfferwallAdCreditedEvent.GetInvocationList().Contains(value))
             {
                 _onOfferwallAdCreditedEvent -= value;
             }
@@ -1724,6 +1800,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<bool> _onOfferwallAvailableEvent;
 
+    [Obsolete("This API call is for the ironSource Offerwall, which will soon be deprecated. Please migrate to the Tapjoy Offerwall using the 'Offerwall migration checklist'.", false)]
     public static event Action<bool> onOfferwallAvailableEvent
     {
         add
@@ -1736,7 +1813,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onOfferwallAvailableEvent != null || _onOfferwallAvailableEvent.GetInvocationList().Contains(value))
+            if (_onOfferwallAvailableEvent != null && _onOfferwallAvailableEvent.GetInvocationList().Contains(value))
             {
                 _onOfferwallAvailableEvent -= value;
             }
@@ -1753,6 +1830,7 @@ public class IronSourceEvents : MonoBehaviour
     // ******************************* Banner Events *******************************    
     private static event Action _onBannerAdLoadedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
     public static event Action onBannerAdLoadedEvent
     {
         add
@@ -1765,7 +1843,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onBannerAdLoadedEvent != null || _onBannerAdLoadedEvent.GetInvocationList().Contains(value))
+            if (_onBannerAdLoadedEvent != null && _onBannerAdLoadedEvent.GetInvocationList().Contains(value))
             {
                 _onBannerAdLoadedEvent -= value;
             }
@@ -1780,6 +1858,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<IronSourceError> _onBannerAdLoadFailedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
     public static event Action<IronSourceError> onBannerAdLoadFailedEvent
     {
         add
@@ -1792,7 +1871,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onBannerAdLoadFailedEvent != null || _onBannerAdLoadFailedEvent.GetInvocationList().Contains(value))
+            if (_onBannerAdLoadFailedEvent != null && _onBannerAdLoadFailedEvent.GetInvocationList().Contains(value))
             {
                 _onBannerAdLoadFailedEvent -= value;
             }
@@ -1811,6 +1890,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action _onBannerAdClickedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
     public static event Action onBannerAdClickedEvent
     {
         add
@@ -1823,7 +1903,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onBannerAdClickedEvent != null || _onBannerAdClickedEvent.GetInvocationList().Contains(value))
+            if (_onBannerAdClickedEvent != null && _onBannerAdClickedEvent.GetInvocationList().Contains(value))
             {
                 _onBannerAdClickedEvent -= value;
             }
@@ -1838,6 +1918,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action _onBannerAdScreenPresentedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
     public static event Action onBannerAdScreenPresentedEvent
     {
         add
@@ -1850,7 +1931,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onBannerAdScreenPresentedEvent != null || _onBannerAdScreenPresentedEvent.GetInvocationList().Contains(value))
+            if (_onBannerAdScreenPresentedEvent != null && _onBannerAdScreenPresentedEvent.GetInvocationList().Contains(value))
             {
                 _onBannerAdScreenPresentedEvent -= value;
             }
@@ -1865,6 +1946,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action _onBannerAdScreenDismissedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
     public static event Action onBannerAdScreenDismissedEvent
     {
         add
@@ -1877,7 +1959,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onBannerAdScreenDismissedEvent != null || _onBannerAdScreenDismissedEvent.GetInvocationList().Contains(value))
+            if (_onBannerAdScreenDismissedEvent != null && _onBannerAdScreenDismissedEvent.GetInvocationList().Contains(value))
             {
                 _onBannerAdScreenDismissedEvent -= value;
             }
@@ -1892,6 +1974,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action _onBannerAdLeftApplicationEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceBannerEvents listener instead.", false)]
     public static event Action onBannerAdLeftApplicationEvent
     {
         add
@@ -1904,7 +1987,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onBannerAdLeftApplicationEvent != null || _onBannerAdLeftApplicationEvent.GetInvocationList().Contains(value))
+            if (_onBannerAdLeftApplicationEvent != null && _onBannerAdLeftApplicationEvent.GetInvocationList().Contains(value))
             {
                 _onBannerAdLeftApplicationEvent -= value;
             }
@@ -1919,7 +2002,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<IronSourceImpressionData> _onImpressionSuccessEvent;
 
-    [Obsolete("This method has been deprecated and won't be included in ironSource SDK versions 7.3.0 and above. Please use OnImpressionDataReady instead.")]
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use OnImpressionDataReady instead.")]
     public static event Action<IronSourceImpressionData> onImpressionSuccessEvent
     {
         add
@@ -1932,7 +2015,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onImpressionSuccessEvent != null || _onImpressionSuccessEvent.GetInvocationList().Contains(value))
+            if (_onImpressionSuccessEvent != null && _onImpressionSuccessEvent.GetInvocationList().Contains(value))
             {
                 _onImpressionSuccessEvent -= value;
             }
@@ -1954,6 +2037,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action<IronSourceError> _onRewardedVideoAdLoadFailedEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action<IronSourceError> onRewardedVideoAdLoadFailedEvent
     {
         add
@@ -1966,7 +2050,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onRewardedVideoAdLoadFailedEvent != null || _onRewardedVideoAdLoadFailedEvent.GetInvocationList().Contains(value))
+            if (_onRewardedVideoAdLoadFailedEvent != null && _onRewardedVideoAdLoadFailedEvent.GetInvocationList().Contains(value))
             {
                 _onRewardedVideoAdLoadFailedEvent -= value;
             }
@@ -1984,6 +2068,7 @@ public class IronSourceEvents : MonoBehaviour
 
     private static event Action _onRewardedVideoAdReadyEvent;
 
+    [Obsolete("This API has been deprecated as of SDK 7.3.0. Please use the alternate API in IronSourceRewardedVideoEvents listener instead.", false)]
     public static event Action onRewardedVideoAdReadyEvent
     {
         add
@@ -1996,7 +2081,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onRewardedVideoAdReadyEvent != null || _onRewardedVideoAdReadyEvent.GetInvocationList().Contains(value))
+            if (_onRewardedVideoAdReadyEvent != null && _onRewardedVideoAdReadyEvent.GetInvocationList().Contains(value))
             {
                 _onRewardedVideoAdReadyEvent -= value;
             }
@@ -2030,7 +2115,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onConsentViewDidFailToLoadWithErrorEvent != null || _onConsentViewDidFailToLoadWithErrorEvent.GetInvocationList().Contains(value))
+            if (_onConsentViewDidFailToLoadWithErrorEvent != null && _onConsentViewDidFailToLoadWithErrorEvent.GetInvocationList().Contains(value))
             {
                 _onConsentViewDidFailToLoadWithErrorEvent -= value;
             }
@@ -2062,7 +2147,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onConsentViewDidFailToShowWithErrorEvent != null || _onConsentViewDidFailToShowWithErrorEvent.GetInvocationList().Contains(value))
+            if (_onConsentViewDidFailToShowWithErrorEvent != null && _onConsentViewDidFailToShowWithErrorEvent.GetInvocationList().Contains(value))
             {
                 _onConsentViewDidFailToShowWithErrorEvent -= value;
             }
@@ -2094,7 +2179,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onConsentViewDidAcceptEvent != null || _onConsentViewDidAcceptEvent.GetInvocationList().Contains(value))
+            if (_onConsentViewDidAcceptEvent != null && _onConsentViewDidAcceptEvent.GetInvocationList().Contains(value))
             {
                 _onConsentViewDidAcceptEvent -= value;
             }
@@ -2123,7 +2208,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onConsentViewDidDismissEvent != null || _onConsentViewDidDismissEvent.GetInvocationList().Contains(value))
+            if (_onConsentViewDidDismissEvent != null && _onConsentViewDidDismissEvent.GetInvocationList().Contains(value))
             {
                 _onConsentViewDidDismissEvent -= value;
             }
@@ -2152,7 +2237,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onConsentViewDidLoadSuccessEvent != null || _onConsentViewDidLoadSuccessEvent.GetInvocationList().Contains(value))
+            if (_onConsentViewDidLoadSuccessEvent != null && _onConsentViewDidLoadSuccessEvent.GetInvocationList().Contains(value))
             {
                 _onConsentViewDidLoadSuccessEvent -= value;
             }
@@ -2181,7 +2266,7 @@ public class IronSourceEvents : MonoBehaviour
 
         remove
         {
-            if (_onConsentViewDidShowSuccessEvent != null || _onConsentViewDidShowSuccessEvent.GetInvocationList().Contains(value))
+            if (_onConsentViewDidShowSuccessEvent != null && _onConsentViewDidShowSuccessEvent.GetInvocationList().Contains(value))
             {
                 _onConsentViewDidShowSuccessEvent -= value;
             }

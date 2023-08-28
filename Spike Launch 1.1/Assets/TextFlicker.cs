@@ -15,6 +15,11 @@ public class TextFlicker : MonoBehaviour
         scoreText = GetComponent<TMPro.TextMeshProUGUI>();
     }
 
+    void OnEnable()
+    {
+        frame = 0f;
+    }
+
     // Update is called once per frame
     void Update()
     {

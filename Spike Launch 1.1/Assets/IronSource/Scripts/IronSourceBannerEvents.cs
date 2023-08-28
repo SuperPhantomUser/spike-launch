@@ -9,6 +9,7 @@ public class IronSourceBannerEvents : MonoBehaviour
 {
 
 #if UNITY_ANDROID
+    #pragma warning disable CS0067
     public static event Action<IronSourceAdInfo> onAdLoadedEvent;
     public static event Action<IronSourceAdInfo> onAdLeftApplicationEvent;
     public static event Action<IronSourceAdInfo> onAdScreenDismissedEvent;
@@ -160,7 +161,7 @@ public class IronSourceBannerEvents : MonoBehaviour
 
         remove
         {
-            if (_onAdLoadFailedEvent != null || _onAdLoadFailedEvent.GetInvocationList().Contains(value))
+            if (_onAdLoadFailedEvent != null && _onAdLoadFailedEvent.GetInvocationList().Contains(value))
             {
                 _onAdLoadFailedEvent -= value;
             }
@@ -191,7 +192,7 @@ public class IronSourceBannerEvents : MonoBehaviour
 
         remove
         {
-            if (_onAdClickedEvent != null || _onAdClickedEvent.GetInvocationList().Contains(value))
+            if (_onAdClickedEvent != null && _onAdClickedEvent.GetInvocationList().Contains(value))
             {
                 _onAdClickedEvent -= value;
             }
@@ -222,7 +223,7 @@ public class IronSourceBannerEvents : MonoBehaviour
 
         remove
         {
-            if (_onAdScreenPresentedEvent != null || _onAdScreenPresentedEvent.GetInvocationList().Contains(value))
+            if (_onAdScreenPresentedEvent != null && _onAdScreenPresentedEvent.GetInvocationList().Contains(value))
             {
                 _onAdScreenPresentedEvent -= value;
             }
@@ -253,7 +254,7 @@ public class IronSourceBannerEvents : MonoBehaviour
 
         remove
         {
-            if (_onAdScreenDismissedEvent != null || _onAdScreenDismissedEvent.GetInvocationList().Contains(value))
+            if (_onAdScreenDismissedEvent != null && _onAdScreenDismissedEvent.GetInvocationList().Contains(value))
             {
                 _onAdScreenDismissedEvent -= value;
             }
@@ -283,7 +284,7 @@ public class IronSourceBannerEvents : MonoBehaviour
 
         remove
         {
-            if (_onAdLeftApplicationEvent != null || _onAdLeftApplicationEvent.GetInvocationList().Contains(value))
+            if (_onAdLeftApplicationEvent != null && _onAdLeftApplicationEvent.GetInvocationList().Contains(value))
             {
                 _onAdLeftApplicationEvent -= value;
             }

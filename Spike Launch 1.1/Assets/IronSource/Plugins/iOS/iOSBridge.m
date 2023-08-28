@@ -107,10 +107,6 @@ char *const IRONSOURCE_BANNER_EVENTS = "IronSourceBannerEvents";
 
 #pragma mark Base API
 
-- (void)setMediationSegment:(NSString *)segment {
-    [IronSource setMediationSegment:segment];
-}
-
 - (const char *)getAdvertiserId {
     NSString *advertiserId = [IronSource advertiserId];
     
@@ -291,7 +287,9 @@ char *const IRONSOURCE_BANNER_EVENTS = "IronSourceBannerEvents";
 }
 
 - (void)rewardedVideoDidClose {
-    UnityPause(0);
+    if (pauseGame) {
+        UnityPause(0);
+    }
     [self centerBanner];
     UnitySendMessage(IRONSOURCE_EVENTS, "onRewardedVideoAdClosed", "");
 }
@@ -323,7 +321,9 @@ char *const IRONSOURCE_BANNER_EVENTS = "IronSourceBannerEvents";
 }
 
 - (void)rewardedVideoLevelPlayDidCloseWithAdInfo:(nonnull ISAdInfo *)adInfo {
-    UnityPause(0);
+    if (pauseGame) {
+        UnityPause(0);
+    }
     UnitySendMessage(IRONSOURCE_REWARDED_VIDEO_EVENTS, "onAdClosed",[self getAdInfoData:adInfo].UTF8String);
 }
 
@@ -405,7 +405,9 @@ char *const IRONSOURCE_BANNER_EVENTS = "IronSourceBannerEvents";
 }
 
 - (void)rewardedVideoDidClose:(NSString *)instanceId {
-    UnityPause(0);
+    if (pauseGame) {
+        UnityPause(0);
+    }
     [self centerBanner];
     UnitySendMessage(IRONSOURCE_EVENTS, "onRewardedVideoAdClosedDemandOnly", MakeStringCopy(instanceId));
 }
@@ -472,7 +474,9 @@ char *const IRONSOURCE_BANNER_EVENTS = "IronSourceBannerEvents";
 }
 
 - (void)interstitialDidClose {
-    UnityPause(0);
+    if (pauseGame) {
+        UnityPause(0);
+    }
     [self centerBanner];
     UnitySendMessage(IRONSOURCE_EVENTS, "onInterstitialAdClosed", "");
 }
@@ -499,7 +503,9 @@ char *const IRONSOURCE_BANNER_EVENTS = "IronSourceBannerEvents";
 }
 
 - (void)interstitialLevelPlayDidCloseWithAdInfo:(nonnull ISAdInfo *)adInfo {
-    UnityPause(0);
+    if (pauseGame) {
+        UnityPause(0);
+    }
     UnitySendMessage(IRONSOURCE_INTERSTITIAL_EVENTS, "onAdClosed", [self getAdInfoData:adInfo].UTF8String);
 }
 
@@ -550,7 +556,9 @@ char *const IRONSOURCE_BANNER_EVENTS = "IronSourceBannerEvents";
 }
 
 - (void)interstitialDidClose:(NSString *)instanceId {
-    UnityPause(0);
+    if (pauseGame) {
+        UnityPause(0);
+    }
     [self centerBanner];
     UnitySendMessage(IRONSOURCE_EVENTS, "onInterstitialAdClosedDemandOnly", MakeStringCopy(instanceId));
 }
@@ -980,11 +988,28 @@ char *const IRONSOURCE_BANNER_EVENTS = "IronSourceBannerEvents";
     [IronSource setAdRevenueDataWithDataSource:dataSource impressionData:impressionData];
 }
 
+#pragma mark TestSuite API
+- (void)launchTestSuite {
+    [IronSource launchTestSuite:[UIApplication sharedApplication].keyWindow.rootViewController];
+}
+
 #pragma mark - C Section
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+    
+    typedef struct {
+        double floor;
+        double ceiling;
+    } LPPWaterfallConfigurationData;
+    
+    enum LPPAdFormat
+    {
+        LPPAdFormatRewardedVideo,
+        LPPAdFormatInterstitial,
+        LPPAdFormatBanner
+    };
     
     void RegisterCallback(ISUnityBackgroundCallback func){
             backgroundCallback=func;
@@ -995,11 +1020,6 @@ extern "C" {
     
     void CFSetPluginData(const char *pluginType, const char *pluginVersion, const char *pluginFrameworkVersion){
         [[iOSBridge start] setPluginDataWithType:GetStringParam(pluginType) pluginVersion:GetStringParam(pluginVersion) pluginFrameworkVersion:GetStringParam(pluginFrameworkVersion)];
-    }
-    
-    
-    void CFSetMediationSegment(const char *segment){
-        [[iOSBridge start] setMediationSegment:GetStringParam(segment)];
     }
     
     const char *CFGetAdvertiserId(){
@@ -1230,6 +1250,41 @@ extern "C" {
         [[iOSBridge start] setSegment:GetStringParam(jsonString)];
     }
     
+#pragma mark Set Waterfall Configuration API
+
+    void LPPSetWaterfallConfiguration(LPPWaterfallConfigurationData configurationParams, enum LPPAdFormat adFormat) {
+        ISWaterfallConfigurationBuilder *builder = [ISWaterfallConfiguration builder];
+        const double defaultValue = 0.00;
+        
+        if (configurationParams.floor != defaultValue) {
+            NSNumber *floorValue = [NSNumber numberWithDouble:configurationParams.floor];
+            [builder setFloor:floorValue];
+        }
+    
+        if (configurationParams.ceiling != defaultValue) {
+            NSNumber *ceilingValue = [NSNumber numberWithDouble:configurationParams.ceiling];
+            [builder setCeiling:ceilingValue];
+        }
+    
+        ISWaterfallConfiguration *waterfallConfig = [builder build];
+        ISAdUnit *adUnit;
+        switch (adFormat) {
+            case LPPAdFormatInterstitial:
+                adUnit = [ISAdUnit IS_AD_UNIT_INTERSTITIAL];
+                break;
+            case LPPAdFormatRewardedVideo:
+                adUnit = [ISAdUnit IS_AD_UNIT_REWARDED_VIDEO];
+                break;
+            case LPPAdFormatBanner:
+                adUnit = [ISAdUnit IS_AD_UNIT_BANNER];
+                break;
+            default:
+                return;
+        }
+    
+        [IronSource setWaterfallConfiguration:waterfallConfig forAdUnit:adUnit];
+    }
+
 #pragma mark ConsentView API
     
     void CFLoadConsentViewWithType (char* consentViewType){
@@ -1254,8 +1309,12 @@ extern "C" {
         }
         return [[iOSBridge start] setAdRevenueData:GetStringParam(datasource)impressionData:data];
     }
-    
-    
+
+#pragma mark TestSuite API
+    void CFLaunchTestSuite(){
+        [[iOSBridge start] launchTestSuite];
+    }
+
 #pragma mark - ISRewardedVideoManualDelegate methods
     
     

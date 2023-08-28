@@ -11920,8 +11920,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: CRATECEPTION
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1eb5037a14365834e88b27f840750b6f, type: 2}
-  m_sharedMaterial: {fileID: 730782333612580257, guid: 1eb5037a14365834e88b27f840750b6f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 69042cdd7f7d2cb40aa701db97ed119a, type: 2}
+  m_sharedMaterial: {fileID: -1405124405199636877, guid: 69042cdd7f7d2cb40aa701db97ed119a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23780,6 +23780,10 @@ PrefabInstance:
       propertyPath: GameControlObject
       value: 
       objectReference: {fileID: 1550515418}
+    - target: {fileID: 2124858113380770097, guid: 4b9dee2d9ec7c78478f34ced0b3b5553, type: 3}
+      propertyPath: GameControlObject
+      value: 
+      objectReference: {fileID: 1550515418}
     - target: {fileID: 2865950166910103381, guid: 4b9dee2d9ec7c78478f34ced0b3b5553, type: 3}
       propertyPath: GameControlObject
       value: 
@@ -23868,11 +23872,19 @@ PrefabInstance:
       propertyPath: GameControlObject
       value: 
       objectReference: {fileID: 1550515418}
+    - target: {fileID: 4275718819395411131, guid: 4b9dee2d9ec7c78478f34ced0b3b5553, type: 3}
+      propertyPath: GameControlObject
+      value: 
+      objectReference: {fileID: 1550515418}
     - target: {fileID: 5077391443646370961, guid: 4b9dee2d9ec7c78478f34ced0b3b5553, type: 3}
       propertyPath: GameControlObject
       value: 
       objectReference: {fileID: 1550515418}
     - target: {fileID: 5458586334569647229, guid: 4b9dee2d9ec7c78478f34ced0b3b5553, type: 3}
+      propertyPath: GameControlObject
+      value: 
+      objectReference: {fileID: 1550515418}
+    - target: {fileID: 5641622502038413520, guid: 4b9dee2d9ec7c78478f34ced0b3b5553, type: 3}
       propertyPath: GameControlObject
       value: 
       objectReference: {fileID: 1550515418}

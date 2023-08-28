@@ -11,6 +11,8 @@ using UnityEngine.SocialPlatforms;
 #if UNITY_ANDROID
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
+#else
+using UnityEngine.iOS;
 #endif
 
 public class HomeControl : MonoBehaviour
@@ -84,6 +86,7 @@ public class HomeControl : MonoBehaviour
     }
 
     public void PlayerSelectScreen(bool open) {
+        Debug.Log("Character");
         if (moving == false) {
             //AdsMenu.SetActive(false);
             moving = true;

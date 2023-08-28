@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
 
@@ -183,7 +184,6 @@ public class Load : MonoBehaviour
         if (Ocean) Ocean.GetComponent<Animator>().enabled = true;
         if (Ocean) {
             yield return new WaitForSeconds(0.7f);
-            Debug.Log(myID);
             if (myID == 6) GetComponent<Animation>().Play("FlipDown");
             yield return new WaitForSeconds(0.3f);
             Speedlines.SetActive(true);
@@ -192,6 +192,7 @@ public class Load : MonoBehaviour
         else yield return new WaitForSeconds(2.5f);
         GetComponent<Animator>().enabled = false;
         GameControl.before = 0;
+        GameControl.timer.Start();
         StartCoroutine(GameControl.TimerTime());
     }
 

@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: NEW HIGHSCORE!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1eb5037a14365834e88b27f840750b6f, type: 2}
-  m_sharedMaterial: {fileID: 730782333612580257, guid: 1eb5037a14365834e88b27f840750b6f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 69042cdd7f7d2cb40aa701db97ed119a, type: 2}
+  m_sharedMaterial: {fileID: -1405124405199636877, guid: 69042cdd7f7d2cb40aa701db97ed119a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3963135850453424961
@@ -203,15 +203,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: (RELAXED MODE ON)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1eb5037a14365834e88b27f840750b6f, type: 2}
-  m_sharedMaterial: {fileID: 730782333612580257, guid: 1eb5037a14365834e88b27f840750b6f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 69042cdd7f7d2cb40aa701db97ed119a, type: 2}
+  m_sharedMaterial: {fileID: -1405124405199636877, guid: 69042cdd7f7d2cb40aa701db97ed119a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4290690750
-  m_fontColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  m_fontColor: {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1297,7 +1297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.7840252, b: 0.42830187, a: 1}
+  m_Color: {r: 1, g: 0.8663738, b: 0.645283, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

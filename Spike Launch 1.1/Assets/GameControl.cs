@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using System.IO;
 using System.Text;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -122,6 +123,7 @@ public class GameControl : MonoBehaviour
 
     public Data Data;
 
+    public Stopwatch timer;
 
     // Start is called before the first frame update
     void Start()
@@ -238,6 +240,8 @@ public class GameControl : MonoBehaviour
         powerupIndexes = new int[] { 0, 0, 0, 0, 0, 0 };
         LoadMissions(data);
 
+        timer = new Stopwatch();
+
         //PlayerPrefs.SetInt("Tutorial", 0);
         if (PlayerPrefs.GetInt($"Tutorial{SceneManager.GetActiveScene().name}") == 0) TutorialStart();
     }
@@ -298,7 +302,8 @@ public class GameControl : MonoBehaviour
                 if (frameColor > 0f && map == "Ocean")
                 {
                     frameColor -= Time.deltaTime;
-                    oceanColor.color = new Color(oceanColor.color.r / 1.05f, oceanColor.color.g / 1.05f, oceanColor.color.b / 1.05f, 1f);
+                    float multiplier = 1.0125f;
+                    oceanColor.color = new Color(oceanColor.color.r / multiplier, oceanColor.color.g / multiplier, oceanColor.color.b / multiplier, 1f);
                 }
             }
             if (score >= 100 && SceneManager.GetActiveScene().name == "Game" && powerups == 0) {
@@ -414,6 +419,7 @@ public class GameControl : MonoBehaviour
 
     public void GameOver() {
         inGame = false;
+        timer.Stop();
         Spike.GetComponent<SpriteRenderer>().sprite = Spike.GetComponent<Load>().spriteHurt;
         if (!SpikeScript) SpikeScript = Spike.GetComponent<Load>();
         if (SpikeScript.looped) SpikeScript.MusicLoop.Stop();
@@ -421,6 +427,7 @@ public class GameControl : MonoBehaviour
         SpikeScript.Shooter(false);
         SpikeScript.Shield(false);
         //Spike.transform.localScale = new Vector3(5f, 5f, 1f);
+        Speedlines.GetComponent<ParticleSystem>().Pause();
         if (PlayerPrefs.GetInt("SoundVolume") != -1 && PlayerPrefs.GetInt("CrowdedMode") == 0) GameOverSource.Play();
         int mapHighscore = GetHighscore(SceneManager.GetActiveScene().name);
         Highscore.text = $"Highscore: {mapHighscore}";
@@ -433,7 +440,18 @@ public class GameControl : MonoBehaviour
         Results.text = $"Score: {score}";
         AddCoins(score);
         if (PlayerPrefs.GetInt("Relaxed") == 1) Notice.SetActive(true);
-        else Notice.SetActive(false);
+        else
+        {
+            Notice.SetActive(false);
+            TimeSpan elapsed = timer.Elapsed;
+            if (elapsed.Seconds > 15 || elapsed.Minutes > 0)
+            {
+                string elapsedTime = String.Format("{0:00}:{1:00}", elapsed.Minutes, elapsed.Seconds);
+                Notice.GetComponent<TMPro.TextMeshProUGUI>().text = $"CRATEPHOBIA TIMER: {elapsedTime}";
+                Notice.GetComponent<TMPro.TextMeshProUGUI>().color = new Color(1f, 0.892163f, 0.3716981f, 1f);
+                Notice.SetActive(true);
+            }
+        }
         StartCoroutine(GameOverShow());
     }
 
@@ -564,8 +582,9 @@ public class GameControl : MonoBehaviour
         speedUps++;
         yield return new WaitForSeconds(1f);
         SpeedUpText.SetActive(true);
+        yield return new WaitForSeconds(1f);
         if (map == "Ocean") frameColor = 0.1f;
-        yield return new WaitForSeconds(2.25f);
+        yield return new WaitForSeconds(1.25f);
         SpeedUpText.SetActive(false);
         if (speedUps % 2 == 0) {
             var main = Speedlines.GetComponent<ParticleSystem>().main;
@@ -683,7 +702,8 @@ public class GameControl : MonoBehaviour
         Time.timeScale = 1;
         if (scene == "Game") LoadingData.sceneToLoad = SceneManager.GetActiveScene().name;
         else LoadingData.sceneToLoad = scene;
-        SceneManager.LoadScene("Loading");
+        if (PauseMenu.activeSelf == true) AddCoins(score, true);
+        else SceneManager.LoadScene("Loading");
     }
 
     void SaveHighscore(string map, int highscore) {
@@ -719,7 +739,7 @@ public class GameControl : MonoBehaviour
 
     public IEnumerator TimerTime() {
         yield return new WaitForSeconds(180);
-        if (PlayerPrefs.GetInt("Relaxed") == 0 && crates == 0) {
+        if (PlayerPrefs.GetInt("Relaxed") == 0 && crates == 0 && SceneManager.GetActiveScene().name == "Game") {
             if (PlayerPrefs.GetInt("GooglePlay") == 1) Social.ReportProgress("CgkIqPj-8swdEAIQCg", 100.0f, (bool success) => {});
             if (PlayerPrefs.GetInt("GooglePlay") == 0 && !lastAchievements[11])
             {
@@ -749,7 +769,7 @@ public class GameControl : MonoBehaviour
 
      */
 
-    void AddCoins(int score) {
+    void AddCoins(int score, bool loadScene = false) {
 		Data.SpikeData data = Data.GetFromFile();
         float fscore = (float)score;
         data.coins = data.coins + (int)Mathf.Ceil(fscore / 2);
@@ -764,9 +784,9 @@ public class GameControl : MonoBehaviour
 
         if (PlayerPrefs.GetInt("GooglePlay") == 1)
         {
-            #if UNITY_ANDROID
-            PlayGamesPlatform.Instance.IncrementAchievement("", powerups, (bool success) => { });
-            #endif
+        #if UNITY_ANDROID
+            PlayGamesPlatform.Instance.IncrementAchievement("CgkIqPj-8swdEAIQEA", powerups, (bool success) => { });
+        #endif
         }
 
         bool notif = false;
@@ -952,6 +972,7 @@ public class GameControl : MonoBehaviour
         }
 
 	    Data.SaveToFile(data);
+        if (loadScene) SceneManager.LoadScene("Loading");
     }
 
     IEnumerator SecondObstacle(bool good) {
