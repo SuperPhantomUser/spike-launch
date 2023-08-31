@@ -11,7 +11,7 @@ using UnityEngine.SocialPlatforms;
 #if UNITY_ANDROID
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
-#else
+#elif UNITY_IOS
 using UnityEngine.iOS;
 #endif
 
@@ -173,7 +173,7 @@ public class HomeControl : MonoBehaviour
         PlayerPrefs.SetInt("NoRate", 1);
 #if UNITY_ANDROID
         Application.OpenURL("market://details?id=" + Application.identifier);
-#else
+#elif UNITY_IOS
         //Application.OpenURL("itms://itunes.apple.com/us/app/apple-store/6449191718?mt=8");
         Device.RequestStoreReview();
 #endif

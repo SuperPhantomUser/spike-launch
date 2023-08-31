@@ -124,7 +124,7 @@ public class Data : MonoBehaviour
             data.missionTier = 0;
             data.claimedToday = false;
             data.postcards = new bool[] { false, false, false, false, false, false, false, false, false, false, false, false };
-            // 15 postcards
+            // 12 postcards
             data.lifetimeToday = 0;
             data.lifetimeClassicToday = 0;
             data.lifetimeStormToday = 0;

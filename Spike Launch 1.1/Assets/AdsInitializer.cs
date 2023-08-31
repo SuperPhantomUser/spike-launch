@@ -16,7 +16,6 @@ public class AdsInitializer : MonoBehaviour
     [SerializeField] string _iOSAdUnitId = "Rewarded_iOS";
     string _adUnitId = null; // This will remain null for unsupported platforms
     private string _gameId;*/
-    public bool loading;
 
     string id;
 
@@ -24,6 +23,10 @@ public class AdsInitializer : MonoBehaviour
     public TMPro.TextMeshProUGUI adText;
 
     public Data Data;
+
+    private bool initialized = false;
+    private bool available = false;
+    private bool loading = false;
 
     void Start()
     {
@@ -33,62 +36,66 @@ public class AdsInitializer : MonoBehaviour
         id = "1a0b5fe9d";
         #endif
         InitializeAds();
-        loading = false;
         //Disable the button until the ad is ready to show:
         //watchAdButton.interactable = false;
-        IronSourceRewardedVideoEvents.onAdClosedEvent += ClosedAd;
-        IronSourceRewardedVideoEvents.onAdRewardedEvent += RewardAd;
-        IronSourceRewardedVideoEvents.onAdShowFailedEvent += FailedAd;
     }
 
     void Update() 
     {
-        if (loading) {
-            bool available = IronSource.Agent.isRewardedVideoAvailable();
-            if (available) {
-                loading = false;
-                LoadedAd();
-            }
-        }
+        
     }
  
     public void InitializeAds()
     {
+        initialized = false;
+        available = false;
+        loading = false;
         //IronSource.Agent.setUserId("10101");
+        IronSourceRewardedVideoEvents.onAdClosedEvent += ClosedAd;
+        IronSourceRewardedVideoEvents.onAdRewardedEvent += RewardAd;
+        IronSourceRewardedVideoEvents.onAdShowFailedEvent += FailedAd;
+        IronSourceRewardedVideoEvents.onAdAvailableEvent += AvailableAd;
         IronSource.Agent.init(id, IronSourceAdUnits.REWARDED_VIDEO);
         IronSourceEvents.onSdkInitializationCompletedEvent += SdkInitializationCompletedEvent;
         Debug.Log("Spike Launch: Verifying Integration");
         IronSource.Agent.validateIntegration();
     }
 
-    private void SdkInitializationCompletedEvent(){
+    void AvailableAd(IronSourceAdInfo adInfo)
+    {
+        loading = false;
+        available = true;
+        Debug.Log("Spike Launch: Loaded Ad Successfully");
+    }
+
+    private void SdkInitializationCompletedEvent() 
+    {
         Debug.Log("Spike Launch: Ad Initialization Complete");
-        //LoadAd();
+        LoadAd();
     }
  
     // Load content to the Ad Unit: 
     public void LoadAd()
     {
-        loading = true;
         Debug.Log("Spike Launch: Loading Ad");
-        adText.text = "Loading ad...";
+        loading = true;
     }
 
-    void LoadedAd() {
-    // Execute logic for the ad loading successfully.
-        Debug.Log("Spike Launch: Loaded Ad Successfully");
+    void ShowAd() { // this is the button method
+        Debug.Log("Spike Launch: Preparing Ad");
+        adText.text = "Preparing ad...";
+        bool tempAvailable = IronSource.Agent.isRewardedVideoAvailable();
+        if (tempAvailable || available) DisplayAd();
+        else if (loading) adText.text = "Loading ad...";
+    }
+
+    void DisplayAd()
+    {
+        available = false;
+        loading = false;
+        Debug.Log("Spike Launch: Displaying Ad");
         adText.text = "Loaded ad successfully.";
         IronSource.Agent.showRewardedVideo();
-    }
-
-    public void Show() {
-        ShowAd();
-    }
-
-    void ShowAd() {
-        Debug.Log("Spike Launch: Showing Ad");
-        adText.text = "Preparing ad...";
-        LoadAd();
     }
 
     void RewardAd(IronSourcePlacement placement, IronSourceAdInfo adInfo)
