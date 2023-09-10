@@ -200,7 +200,7 @@ public class Preview : MonoBehaviour
             {"", ""},
             {"", ""}
         };
-        pProgress = new string[12,2]
+        pProgress = new string[10,2]
         {
             {"", ""},
             {"", ""},
