@@ -192,10 +192,12 @@ public class MissionBoard : MonoBehaviour
         column = 0;
 
         Data.SpikeData data = Data.GetFromFile();
-        string todayDate = DateTime.Now.Date.ToString("d");
+        DateTime today = DateTime.Now;
+        string todayDate = today.Date.ToString("d");
         //data.lastChecked = "8/8/2023";
         //data.missionStreak = 0;
         //data.missionTier = 0;
+        //data.completedMissions = new bool[] { true, true, true };
         if (data.lastChecked != todayDate)
         {
             data.dailyMissions = new string[] { "-1", "-1", "-1" };
@@ -212,11 +214,13 @@ public class MissionBoard : MonoBehaviour
             data.crateceptionToday = 0;
             data.bubbleToday = 0;
             data.rocketToday = 0;
-            if (!data.claimedToday)
+            TimeSpan ts = today - new DateTime(data.lastToday);
+            if (!data.claimedToday || ts.Days > 1)
             {
                 data.missionStreak = 0;
-                if (data.missionTier > 0) data.missionTier -= 0;
+                if (data.missionTier > 0) data.missionTier = 0;
             }
+            data.lastToday = today.Ticks;
             if (data.missionStreak >= 2 && data.missionTier == 0) data.missionTier = 1;
             if (data.missionStreak >= 5 && data.missionTier == 1) data.missionTier = 2;
             if (data.missionStreak >= 10 && data.missionTier == 2) data.missionTier = 3;
@@ -227,6 +231,11 @@ public class MissionBoard : MonoBehaviour
         UpdateBoard(column);
         UpdateAchievements();
     }
+
+    /*int DaysDifference(lastTime)
+    {
+        string todayNow = DateTime.Now.
+    }*/
 
     // Update is called once per frame
     void Update()

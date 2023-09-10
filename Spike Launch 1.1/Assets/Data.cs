@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Reflection;
+using System.Globalization;
 using UnityEngine;
 
 public class Data : MonoBehaviour
@@ -57,11 +58,12 @@ public class Data : MonoBehaviour
         public bool checkedGooglePlay = false;
         public string[] dailyMissions = new string[] { "-1", "-1", "-1" }; // daily missions id for today (randomized everyday depending on reward tier)
         public string lastChecked = "0/0/0000";
+        public long lastToday = DateTime.Now.Ticks;
         public bool[] completedMissions = new bool[] { false, false, false }; // daily missions completed today
         public int missionStreak = 0; // how many days they have completed missions
         public int missionTier = 0; // their current tier
         public bool claimedToday = false; // if they have claimed their mission reward today
-        public bool[] postcards = new bool[] { false, false, false, false, false, false, false, false, false, false, false, false };
+        public bool[] postcards = new bool[] { false, false, false, false, false, false, false, false, false, false };
         // 12 postcards
         public int lifetimeToday = 0;
         public int lifetimeClassicToday = 0;
@@ -109,16 +111,18 @@ public class Data : MonoBehaviour
         if (!PlayerPrefs.HasKey("Version"))
         {
             PlayerPrefs.SetInt("Version", 1);
+            SpikeData106 data106 = JsonUtility.FromJson<SpikeData106>(Encoding.UTF8.GetString(Convert.FromBase64String(json)));
             SpikeData data = JsonUtility.FromJson<SpikeData>(Encoding.UTF8.GetString(Convert.FromBase64String(json)));
             data.lifetimePowerups = 0;
             data.spikes = new bool[]
             {
-                data.spikes[0], data.spikes[1], data.spikes[2], data.spikes[3], data.spikes[4], data.spikes[5], data.spikes[6],
-                data.spikes[7], data.spikes[8], data.spikes[9], data.spikes[10], false, false, data.spikes[11], data.spikes[12], false
+                data106.spikes[0], data106.spikes[1], data106.spikes[2], data106.spikes[3], data106.spikes[4], data106.spikes[5], data106.spikes[6],
+                data106.spikes[7], data106.spikes[8], data106.spikes[9], data106.spikes[10], false, false, data106.spikes[11], data106.spikes[12], false
             };
             data.checkedGooglePlay = false;
             data.dailyMissions = new string[] { "-1", "-1", "-1" };
             data.lastChecked = "0/0/0000";
+            data.lastToday = DateTime.Now.Ticks;
             data.completedMissions = new bool[] { false, false, false };
             data.missionStreak = 0;
             data.missionTier = 0;

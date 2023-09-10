@@ -146,6 +146,7 @@ public class HomeControl : MonoBehaviour
         {
             if (adsOpen)
             {
+                GetComponent<AdsInitializer>().StopLoading();
                 AdsMenu.GetComponent<Animation>().Play("BoardClose");
                 adsOpen = false;
             }
@@ -169,7 +170,7 @@ public class HomeControl : MonoBehaviour
 
     public void RateGame()
     {
-        RatesMenu.SetActive(true);
+        RatesMenu.SetActive(false);
         PlayerPrefs.SetInt("NoRate", 1);
 #if UNITY_ANDROID
         Application.OpenURL("market://details?id=" + Application.identifier);

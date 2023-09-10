@@ -27,6 +27,10 @@ public class Load : MonoBehaviour
     public Sprite spritePowered;
     public Sprite spriteHit;
 
+    public Sprite bubble1;
+    public Sprite bubble2;
+    public Sprite bubble3;
+
     public int myID;
 
     public AudioSource WhooshSource;
@@ -217,5 +221,15 @@ public class Load : MonoBehaviour
 
     public void Flip(string anim) {
         GetComponent<Animation>().Play(anim);
+    }
+
+    public IEnumerator BubblePop()
+    {
+        transform.localScale = new Vector3(0.3f, 0.3f, 1f);
+        GetComponent<SpriteRenderer>().sprite = bubble1;
+        yield return new WaitForSeconds(0.15f);
+        GetComponent<SpriteRenderer>().sprite = bubble2;
+        yield return new WaitForSeconds(0.15f);
+        GetComponent<SpriteRenderer>().sprite = bubble3;
     }
 }

@@ -27,6 +27,8 @@ public class AdsInitializer : MonoBehaviour
     private bool initialized = false;
     private bool available = false;
     private bool loading = false;
+    private bool success = false;
+    private bool rewarded = false;
 
     void Start()
     {
@@ -50,6 +52,7 @@ public class AdsInitializer : MonoBehaviour
         initialized = false;
         available = false;
         loading = false;
+        success = false;
         //IronSource.Agent.setUserId("10101");
         IronSourceRewardedVideoEvents.onAdClosedEvent += ClosedAd;
         IronSourceRewardedVideoEvents.onAdRewardedEvent += RewardAd;
@@ -70,6 +73,7 @@ public class AdsInitializer : MonoBehaviour
 
     private void SdkInitializationCompletedEvent() 
     {
+        initialized = true;
         Debug.Log("Spike Launch: Ad Initialization Complete");
         LoadAd();
     }
@@ -77,16 +81,20 @@ public class AdsInitializer : MonoBehaviour
     // Load content to the Ad Unit: 
     public void LoadAd()
     {
-        Debug.Log("Spike Launch: Loading Ad");
+        available = false;
         loading = true;
+        success = false;
+        rewarded = false;
+        Debug.Log("Spike Launch: Loading Ad");
     }
 
-    void ShowAd() { // this is the button method
+    public void ShowAd() { // this is the button method
         Debug.Log("Spike Launch: Preparing Ad");
         adText.text = "Preparing ad...";
         bool tempAvailable = IronSource.Agent.isRewardedVideoAvailable();
         if (tempAvailable || available) DisplayAd();
         else if (loading) adText.text = "Loading ad...";
+        else adText.text = "Ad failed to load :(";
     }
 
     void DisplayAd()
@@ -100,36 +108,54 @@ public class AdsInitializer : MonoBehaviour
 
     void RewardAd(IronSourcePlacement placement, IronSourceAdInfo adInfo)
     {
-        Debug.Log("Spike Launch: Rewarded Ad Completed");
-        adText.text = "Success! 50 coins rewarded.";
-        Data.SpikeData data = Data.GetFromFile();
-        data.coins += 50;
-        data.adsWatched += 1;
-        coinText.text = $"{data.coins}";
-        Data.SaveToFile(data);
+        if (!rewarded)
+        {
+            rewarded = true;
+            success = true;
+            Debug.Log("Spike Launch: Rewarded Ad Completed");
+            adText.text = "Success! 50 coins rewarded.";
+            Data.SpikeData data = Data.GetFromFile();
+            data.coins += 50;
+            data.adsWatched += 1;
+            coinText.text = $"${data.coins}";
+            Data.SaveToFile(data);
+            LoadAd();
+        }
     }
 
     void ClosedAd(IronSourceAdInfo adInfo)
     {
         Debug.Log("Spike Launch: Ad Closed");
-        adText.text = "Hmm, looks like you closed the ad.";
     }
 
     void FailedAd(IronSourceError error, IronSourceAdInfo adInfo)
     {
         Debug.Log("Spike Launch: Ad Failed");
-        adText.text = "Ad failed to load :(";
-
+        if (!success) adText.text = "Ad failed to load :(";
     }
  
     void OnDestroy()
     {
         // Clean up the button listeners: 
         watchAdButton.onClick.RemoveAllListeners();
+        IronSourceRewardedVideoEvents.onAdClosedEvent -= ClosedAd;
+        IronSourceRewardedVideoEvents.onAdRewardedEvent -= RewardAd;
+        IronSourceRewardedVideoEvents.onAdShowFailedEvent -= FailedAd;
+        IronSourceRewardedVideoEvents.onAdAvailableEvent -= AvailableAd;
+        IronSourceEvents.onSdkInitializationCompletedEvent -= SdkInitializationCompletedEvent;
     }
 
     void OnApplicationPause(bool isPaused) {                 
         IronSource.Agent.onApplicationPause(isPaused);
+    }
+
+    public void StopLoading()
+    {
+        loading = false;
+        success = false;
+        rewarded = false;
+        Debug.Log("Spike Launch: Ad Cancelled");
+        adText.text = "";
     }
 
 }

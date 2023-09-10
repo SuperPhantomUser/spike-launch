@@ -108,17 +108,15 @@ public class Preview : MonoBehaviour
         };
         pTitles = new string[] { 
             "A PAINLESS PROCEDURE", 
-            "HEADS OR TAILS", 
-            "COMM'S CONFESSION", 
+            "BAD CALL", 
+            "HELP WANTED", 
             "TO THE POINT", 
-            "THE LOCAL HOBO", 
-            "FIRST SPIKE LAUNCH", 
-            "LANDING?", 
-            "DANGER SPIKE", 
-            "NEW FREN", 
-            "THE BRICK WALL", 
-            "LETHAL EMBRACE", 
-            "THE PLAN"
+            "SHOW PITCH", 
+            "UNPLANNED VISIT", 
+            "THE EXPERIMENT", 
+            "CLEANUP CALL", 
+            "FIRST FREN",
+            "ROUGH LANDING"
         };
         descs = new string[] {
             "Known for her generic looks, which can be a bother at times... She was hit by a Danger Spike one day, and since then swore to clear them out for good.",
@@ -151,8 +149,6 @@ public class Preview : MonoBehaviour
             "Postcard bought for 250 Spike Coins. Click to view it!",
             "Postcard unlocked. Click to view it!",
             "Postcard unlocked. Click to view it!",
-            "Postcard unlocked. Click to view it!",
-            "Postcard unlocked. Click to view it!",
             "Postcard unlocked. Click to view it!"
         };
         reqs = new string[] {
@@ -183,9 +179,7 @@ public class Preview : MonoBehaviour
             "Buy this postcard for $250!",
             "Obtain 1,000 lifetime points",
             "Obtain 2,500 lifetime points",
-            "Obtain 3,500 lifetime points",
-            "Obtain 5,000 lifetime points",
-            "Obtain 10,000 lifetime points"
+            "Obtain 5,000 lifetime points"
         };
         progress = new string[16,2]
         {
@@ -217,9 +211,7 @@ public class Preview : MonoBehaviour
             {"", ""},
             {"lifetime", "1000"},
             {"lifetime", "2500"},
-            {"lifetime", "3500"},
-            {"lifetime", "5000"},
-            {"lifetime", "10000"}
+            {"lifetime", "5000"}
         };
 
         /*
@@ -319,9 +311,10 @@ public class Preview : MonoBehaviour
                 if (PlayerPrefs.GetInt("GooglePlay") == 1) Social.ReportProgress("CgkIqPj-8swdEAIQDA", 100.0f, (bool success) => {});
             }
 
-            if (PlayerPrefs.GetInt("GooglePlay") == 1 && (data.checkedGooglePlay == false || data.checkedGooglePlay == null))
+            if (PlayerPrefs.GetInt("GooglePlay") == 1)
             {
                 data.checkedGooglePlay = true;
+                PlayGamesPlatform.Activate();
                 Social.LoadAchievements(achievements =>
                 {
                     if (achievements.Length > 0)
@@ -397,8 +390,8 @@ public class Preview : MonoBehaviour
         {
             if (forward) selectedPostcard += 1;
             else selectedPostcard -= 1;
-            if (selectedPostcard == 12) selectedPostcard = 0;
-            if (selectedPostcard == -1) selectedPostcard = 11;
+            if (selectedPostcard == 10) selectedPostcard = 0;
+            if (selectedPostcard == -1) selectedPostcard = 9;
             transform.parent.gameObject.GetComponent<Animation>().Rewind();
             transform.parent.gameObject.GetComponent<Animation>().Play("Boingy");
             ReloadInfo();
@@ -474,7 +467,7 @@ public class Preview : MonoBehaviour
             else if (selectedPostcard < 7)
             {
                 selectTitle.text = pTitles[selectedPostcard];
-                selectDesc.text = pReqs[selectedSpike];
+                selectDesc.text = pReqs[selectedPostcard];
                 selectButton.SetActive(true);
                 selectButton.GetComponent<Image>().color = new Color(0.992f, 0.556f, 0.680f, 1f);
                 GetComponent<Image>().color = new Color(0f, 0f, 0f, 1f);

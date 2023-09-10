@@ -115,6 +115,9 @@ MonoBehaviour:
   spriteHurt: {fileID: -720207719, guid: 223d0a966fef4ab4ab823d2169c68801, type: 3}
   spritePowered: {fileID: -1520513345, guid: 223d0a966fef4ab4ab823d2169c68801, type: 3}
   spriteHit: {fileID: -2123103230, guid: 223d0a966fef4ab4ab823d2169c68801, type: 3}
+  bubble1: {fileID: 0}
+  bubble2: {fileID: 0}
+  bubble3: {fileID: 0}
   myID: 9
   WhooshSource: {fileID: 0}
   SplashSource: {fileID: 0}
@@ -142,7 +145,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &4708760997641478420
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -153,25 +155,6 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -293,6 +276,9 @@ MonoBehaviour:
   spriteHurt: {fileID: -643805712, guid: d139f8b6129cfb64d97c93498288af2c, type: 3}
   spritePowered: {fileID: -441423891, guid: d139f8b6129cfb64d97c93498288af2c, type: 3}
   spriteHit: {fileID: 726487002, guid: d139f8b6129cfb64d97c93498288af2c, type: 3}
+  bubble1: {fileID: 0}
+  bubble2: {fileID: 0}
+  bubble3: {fileID: 0}
   myID: 4
   WhooshSource: {fileID: 0}
   SplashSource: {fileID: 0}
@@ -320,7 +306,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &2909958714878485236
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -331,25 +316,6 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -471,6 +437,9 @@ MonoBehaviour:
   spriteHurt: {fileID: -296346116, guid: 0a684d6b7f5cabc4888985aafb17ee51, type: 3}
   spritePowered: {fileID: 188364791, guid: 0a684d6b7f5cabc4888985aafb17ee51, type: 3}
   spriteHit: {fileID: 261145835, guid: 0a684d6b7f5cabc4888985aafb17ee51, type: 3}
+  bubble1: {fileID: -347076960, guid: 1c5c49ab62449a641a621246c22155cb, type: 3}
+  bubble2: {fileID: -158384206, guid: 1c5c49ab62449a641a621246c22155cb, type: 3}
+  bubble3: {fileID: 893693973, guid: 1c5c49ab62449a641a621246c22155cb, type: 3}
   myID: 5
   WhooshSource: {fileID: 0}
   SplashSource: {fileID: 0}
@@ -498,7 +467,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &8267305731118796504
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -509,25 +477,6 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -649,6 +598,9 @@ MonoBehaviour:
   spriteHurt: {fileID: 1937283154, guid: 706444b2f50ae6d4d8833613ad19c5c0, type: 3}
   spritePowered: {fileID: -1194478001, guid: 706444b2f50ae6d4d8833613ad19c5c0, type: 3}
   spriteHit: {fileID: 1023043097, guid: 706444b2f50ae6d4d8833613ad19c5c0, type: 3}
+  bubble1: {fileID: 0}
+  bubble2: {fileID: 0}
+  bubble3: {fileID: 0}
   myID: 2
   WhooshSource: {fileID: 0}
   SplashSource: {fileID: 0}
@@ -676,7 +628,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &7767312171173023972
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -687,25 +638,6 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -745,7 +677,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3121257511392918654}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5703967318666396901
 SpriteRenderer:
@@ -827,6 +759,9 @@ MonoBehaviour:
   spriteHurt: {fileID: -1354092057, guid: 141f0f33d79a6e44ea1afe6827ff438a, type: 3}
   spritePowered: {fileID: 302257436, guid: 141f0f33d79a6e44ea1afe6827ff438a, type: 3}
   spriteHit: {fileID: 543285827, guid: 141f0f33d79a6e44ea1afe6827ff438a, type: 3}
+  bubble1: {fileID: 0}
+  bubble2: {fileID: 0}
+  bubble3: {fileID: 0}
   myID: 14
   WhooshSource: {fileID: 0}
   SplashSource: {fileID: 0}
@@ -854,7 +789,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &8544406350976944988
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -865,25 +799,6 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1005,6 +920,9 @@ MonoBehaviour:
   spriteHurt: {fileID: -1850290430, guid: 5aeb5384760a46d4abfa38cc480ed730, type: 3}
   spritePowered: {fileID: -1373457878, guid: 5aeb5384760a46d4abfa38cc480ed730, type: 3}
   spriteHit: {fileID: 1712037814, guid: 5aeb5384760a46d4abfa38cc480ed730, type: 3}
+  bubble1: {fileID: 0}
+  bubble2: {fileID: 0}
+  bubble3: {fileID: 0}
   myID: 0
   WhooshSource: {fileID: 0}
   SplashSource: {fileID: 0}
@@ -1032,7 +950,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &3121257511164122956
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1043,25 +960,6 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1641,6 +1539,9 @@ MonoBehaviour:
   spriteHurt: {fileID: -2111830815, guid: bc7fb4f828d23614697dfe77c1d21343, type: 3}
   spritePowered: {fileID: 889778874, guid: bc7fb4f828d23614697dfe77c1d21343, type: 3}
   spriteHit: {fileID: -1585496219, guid: bc7fb4f828d23614697dfe77c1d21343, type: 3}
+  bubble1: {fileID: 0}
+  bubble2: {fileID: 0}
+  bubble3: {fileID: 0}
   myID: 1
   WhooshSource: {fileID: 0}
   SplashSource: {fileID: 0}
@@ -1668,7 +1569,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &3121257511561687343
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1679,25 +1579,6 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1819,6 +1700,9 @@ MonoBehaviour:
   spriteHurt: {fileID: -1368298037, guid: 41dbc63bf1708f149b7ff8cd2caf0754, type: 3}
   spritePowered: {fileID: 67444703, guid: 41dbc63bf1708f149b7ff8cd2caf0754, type: 3}
   spriteHit: {fileID: -1294164747, guid: 41dbc63bf1708f149b7ff8cd2caf0754, type: 3}
+  bubble1: {fileID: 0}
+  bubble2: {fileID: 0}
+  bubble3: {fileID: 0}
   myID: 7
   WhooshSource: {fileID: 0}
   SplashSource: {fileID: 0}
@@ -1846,7 +1730,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &3121257511661187630
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1857,25 +1740,6 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1997,6 +1861,9 @@ MonoBehaviour:
   spriteHurt: {fileID: -1347165350, guid: cc48545a5a841144ca28f6611808214e, type: 3}
   spritePowered: {fileID: 1931914537, guid: cc48545a5a841144ca28f6611808214e, type: 3}
   spriteHit: {fileID: 1964576715, guid: cc48545a5a841144ca28f6611808214e, type: 3}
+  bubble1: {fileID: 0}
+  bubble2: {fileID: 0}
+  bubble3: {fileID: 0}
   myID: 8
   WhooshSource: {fileID: 0}
   SplashSource: {fileID: 0}
@@ -2024,7 +1891,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &3121257511796495310
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2035,25 +1901,6 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2093,7 +1940,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3121257511392918654}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5278985796163204838
 SpriteRenderer:
@@ -2175,6 +2022,9 @@ MonoBehaviour:
   spriteHurt: {fileID: -370606450, guid: 5c354a2d832afa544a3f0271c02a38ce, type: 3}
   spritePowered: {fileID: 1110464080, guid: 5c354a2d832afa544a3f0271c02a38ce, type: 3}
   spriteHit: {fileID: -220608374, guid: 5c354a2d832afa544a3f0271c02a38ce, type: 3}
+  bubble1: {fileID: 0}
+  bubble2: {fileID: 0}
+  bubble3: {fileID: 0}
   myID: 13
   WhooshSource: {fileID: 0}
   SplashSource: {fileID: 0}
@@ -2202,7 +2052,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &4855495565032686298
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2213,25 +2062,6 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2271,7 +2101,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3121257511392918654}
-  m_RootOrder: 12
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2889433075371242278
 SpriteRenderer:
@@ -2353,6 +2183,9 @@ MonoBehaviour:
   spriteHurt: {fileID: 1262804623, guid: 19eb3e7c4898ee042ab23ef8f79a4327, type: 3}
   spritePowered: {fileID: 562657202, guid: 19eb3e7c4898ee042ab23ef8f79a4327, type: 3}
   spriteHit: {fileID: -1937659588, guid: 19eb3e7c4898ee042ab23ef8f79a4327, type: 3}
+  bubble1: {fileID: 0}
+  bubble2: {fileID: 0}
+  bubble3: {fileID: 0}
   myID: 15
   WhooshSource: {fileID: 0}
   SplashSource: {fileID: 0}
@@ -2380,7 +2213,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &4573573351912778283
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2391,25 +2223,6 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2531,6 +2344,9 @@ MonoBehaviour:
   spriteHurt: {fileID: 404685159, guid: 6e21e88e32499984a91b74ba58d1250c, type: 3}
   spritePowered: {fileID: 324286650, guid: 6e21e88e32499984a91b74ba58d1250c, type: 3}
   spriteHit: {fileID: 1927707563, guid: 6e21e88e32499984a91b74ba58d1250c, type: 3}
+  bubble1: {fileID: 0}
+  bubble2: {fileID: 0}
+  bubble3: {fileID: 0}
   myID: 12
   WhooshSource: {fileID: 0}
   SplashSource: {fileID: 0}
@@ -2558,7 +2374,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &292108093369584666
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2569,25 +2384,6 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2709,6 +2505,9 @@ MonoBehaviour:
   spriteHurt: {fileID: 2028668319, guid: 44e2d4794c454884789171d525ace7c2, type: 3}
   spritePowered: {fileID: -2096530226, guid: 44e2d4794c454884789171d525ace7c2, type: 3}
   spriteHit: {fileID: 838469417, guid: 44e2d4794c454884789171d525ace7c2, type: 3}
+  bubble1: {fileID: 0}
+  bubble2: {fileID: 0}
+  bubble3: {fileID: 0}
   myID: 10
   WhooshSource: {fileID: 0}
   SplashSource: {fileID: 0}
@@ -2736,7 +2535,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &2531563495092482195
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2747,25 +2545,6 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2887,6 +2666,9 @@ MonoBehaviour:
   spriteHurt: {fileID: -2041248335, guid: d26dcbd0bfee4b149bd225870996bd4d, type: 3}
   spritePowered: {fileID: -2370901, guid: d26dcbd0bfee4b149bd225870996bd4d, type: 3}
   spriteHit: {fileID: 566235380, guid: d26dcbd0bfee4b149bd225870996bd4d, type: 3}
+  bubble1: {fileID: 0}
+  bubble2: {fileID: 0}
+  bubble3: {fileID: 0}
   myID: 3
   WhooshSource: {fileID: 0}
   SplashSource: {fileID: 0}
@@ -2914,7 +2696,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &4951657785458387004
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2925,25 +2706,6 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -3066,6 +2828,9 @@ MonoBehaviour:
   spriteHurt: {fileID: 5206349, guid: 11bc337b4f6a90a409b024db1d15bf62, type: 3}
   spritePowered: {fileID: 176444049, guid: 11bc337b4f6a90a409b024db1d15bf62, type: 3}
   spriteHit: {fileID: -691298556, guid: 11bc337b4f6a90a409b024db1d15bf62, type: 3}
+  bubble1: {fileID: 0}
+  bubble2: {fileID: 0}
+  bubble3: {fileID: 0}
   myID: 6
   WhooshSource: {fileID: 0}
   SplashSource: {fileID: 0}
@@ -3093,7 +2858,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &3803055286845899966
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3104,25 +2868,6 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -3179,7 +2924,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3121257511392918654}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6672176442123309060
 SpriteRenderer:
@@ -3261,6 +3006,9 @@ MonoBehaviour:
   spriteHurt: {fileID: -1306788391, guid: f82e9963a2e170748beb63faff94a9f4, type: 3}
   spritePowered: {fileID: 460904479, guid: f82e9963a2e170748beb63faff94a9f4, type: 3}
   spriteHit: {fileID: 1785259501, guid: f82e9963a2e170748beb63faff94a9f4, type: 3}
+  bubble1: {fileID: 0}
+  bubble2: {fileID: 0}
+  bubble3: {fileID: 0}
   myID: 11
   WhooshSource: {fileID: 0}
   SplashSource: {fileID: 0}
@@ -3288,7 +3036,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &1415352504938441246
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3299,25 +3046,6 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

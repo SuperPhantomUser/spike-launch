@@ -25,7 +25,7 @@ public class GameControl : MonoBehaviour
     private float frame;
     public bool speedingUp;
 
-    private float frameColor;
+    public float frameColor;
     public SpriteRenderer oceanColor;
 
     public int direction; // 1 = down, 2 = left, 3 = up, 4 = right
@@ -114,6 +114,7 @@ public class GameControl : MonoBehaviour
     public AudioSource PowerupSource;
     public AudioSource FishSource;
     public AudioSource MeteorSource;
+    public AudioSource SpeedSource;
 
     private string[,,] requirements;
     private int[] previousCurrents;
@@ -301,8 +302,10 @@ public class GameControl : MonoBehaviour
                 }
                 if (frameColor > 0f && map == "Ocean")
                 {
-                    frameColor -= Time.deltaTime;
-                    float multiplier = 1.0125f;
+                    //Debug.Log(Time.deltaTime);
+                    frameColor -= 0.01f;
+                    float multiplier = 1.016f;
+                    //if (multiplier <= 1f) multiplier = 1.0001f;
                     oceanColor.color = new Color(oceanColor.color.r / multiplier, oceanColor.color.g / multiplier, oceanColor.color.b / multiplier, 1f);
                 }
             }
@@ -420,7 +423,8 @@ public class GameControl : MonoBehaviour
     public void GameOver() {
         inGame = false;
         timer.Stop();
-        Spike.GetComponent<SpriteRenderer>().sprite = Spike.GetComponent<Load>().spriteHurt;
+        if (spikeID == 5) StartCoroutine(Spike.GetComponent<Load>().BubblePop());
+        else Spike.GetComponent<SpriteRenderer>().sprite = Spike.GetComponent<Load>().spriteHurt;
         if (!SpikeScript) SpikeScript = Spike.GetComponent<Load>();
         if (SpikeScript.looped) SpikeScript.MusicLoop.Stop();
         else SpikeScript.MusicSource.Stop();
@@ -581,10 +585,11 @@ public class GameControl : MonoBehaviour
     IEnumerator SpeedUpShow() {
         speedUps++;
         yield return new WaitForSeconds(1f);
+        SpeedSource.Play();
         SpeedUpText.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        if (map == "Ocean") frameColor = 0.1f;
-        yield return new WaitForSeconds(1.25f);
+        yield return new WaitForSeconds(0.5f);
+        if (map == "Ocean") frameColor = 0.15f;
+        yield return new WaitForSeconds(1.75f);
         SpeedUpText.SetActive(false);
         if (speedUps % 2 == 0) {
             var main = Speedlines.GetComponent<ParticleSystem>().main;
@@ -601,6 +606,7 @@ public class GameControl : MonoBehaviour
         if (speedUp) {
             speedUps++;
             yield return new WaitForSeconds(1f);
+            SpeedSource.Play();
             SpeedUpText.SetActive(true);
             yield return new WaitForSeconds(2.25f);
             SpeedUpText.SetActive(false);
@@ -772,7 +778,8 @@ public class GameControl : MonoBehaviour
     void AddCoins(int score, bool loadScene = false) {
 		Data.SpikeData data = Data.GetFromFile();
         float fscore = (float)score;
-        data.coins = data.coins + (int)Mathf.Ceil(fscore / 2);
+        if (PlayerPrefs.GetInt("Relaxed") == 0) data.coins = data.coins + (int)Mathf.Ceil(fscore / 2);
+        else data.coins = data.coins + (int)Mathf.Ceil(fscore / 3);
 
         data.lifetime += score;
         data.lifetimeToday += score;
@@ -954,7 +961,7 @@ public class GameControl : MonoBehaviour
                 if (id < 9)
                 {
                     bool qualify = false;
-                    if (id == 5 && score >= objective && map == "Classic") qualify = true;
+                    if (id == 5 && score >= objective && SceneManager.GetActiveScene().name == "Game") qualify = true;
                     if (id == 6 && score >= objective && map == "Storm") qualify = true;
                     if (id == 7 && score >= objective && map == "Ocean") qualify = true;
                     if (id == 8 && score >= objective && map == "Space") qualify = true;
