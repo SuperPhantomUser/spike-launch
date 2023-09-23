@@ -121,7 +121,7 @@ public class Load : MonoBehaviour
                 float y = worldPoint.y;
                 if (y > 3.5f) y = 3.5f;
                 if (y < -3.5f) y = -3.5f;
-                if (y < 4f || tapping) {
+                if (y < 4f || !tapping) {
                     tapping = true;
                     transform.position = new Vector3(x, y, 0f);
                 }
@@ -131,7 +131,7 @@ public class Load : MonoBehaviour
             else {
                 float y = -3f;
                 if (Ocean) y = 3f;
-                if (worldPoint.y < 4f || tapping) {
+                if (worldPoint.y < 3.5f || !tapping) {
                     tapping = true;
                     if (worldPoint.x > 2f) transform.position = new Vector3(2f, y, 0f);
                     else if (worldPoint.x < -2f) transform.position = new Vector3(-2f, y, 0f);

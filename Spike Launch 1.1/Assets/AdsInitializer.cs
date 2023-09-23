@@ -81,6 +81,7 @@ public class AdsInitializer : MonoBehaviour
     // Load content to the Ad Unit: 
     public void LoadAd()
     {
+        IronSource.Agent.init(id, IronSourceAdUnits.REWARDED_VIDEO);
         available = false;
         loading = true;
         success = false;

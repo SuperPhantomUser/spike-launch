@@ -869,7 +869,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 5, y: -46}
-  m_SizeDelta: {x: 175, y: 46.092}
+  m_SizeDelta: {x: 155, y: 46.092}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &57271995
 MonoBehaviour:
@@ -7081,7 +7081,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 50, y: 0}
-  m_SizeDelta: {x: 80, y: 70}
+  m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &829745348
 MonoBehaviour:
@@ -7152,9 +7152,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
-  full: {fileID: 21300000, guid: e3a72ec607c50ee4988549bfade35adc, type: 3}
+  full: {fileID: 21300000, guid: ba37802013e11194e97d4ae10e0ebff0, type: 3}
   half: {fileID: 0}
-  none: {fileID: 21300000, guid: d5c3ae713d938fa4cbba436aff75a723, type: 3}
+  none: {fileID: 21300000, guid: dbbe186bb76d3cb43b2697801a4b7877, type: 3}
   HomeControl: {fileID: 76299373}
   CrowdedButton: {fileID: 0}
   NormalButton: {fileID: 0}
@@ -7173,7 +7173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 11f13d297bd4bfd44981c69c1fd49063, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -7181,7 +7181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e3a72ec607c50ee4988549bfade35adc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ba37802013e11194e97d4ae10e0ebff0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16883,7 +16883,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -50, y: 0}
-  m_SizeDelta: {x: 80, y: 80}
+  m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1353932894
 MonoBehaviour:
@@ -16897,7 +16897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 11f13d297bd4bfd44981c69c1fd49063, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -16905,7 +16905,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ddba30700b7b3624cac810953dc25422, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d87d3b26e7d95b4419fe1679e52e2d14, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16992,9 +16992,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  full: {fileID: 21300000, guid: ddba30700b7b3624cac810953dc25422, type: 3}
-  half: {fileID: 21300000, guid: 3e709e43cf838434a9cf915a262c42ce, type: 3}
-  none: {fileID: 21300000, guid: 24ac3ff1df094ed40866594788a5e780, type: 3}
+  full: {fileID: 21300000, guid: d87d3b26e7d95b4419fe1679e52e2d14, type: 3}
+  half: {fileID: 21300000, guid: 95a277c5de350ab42948a95b548968ef, type: 3}
+  none: {fileID: 21300000, guid: 383b8a28ecb2dc04f9d6c1130760bc4f, type: 3}
   HomeControl: {fileID: 76299373}
   CrowdedButton: {fileID: 756354088}
   NormalButton: {fileID: 1526167330}

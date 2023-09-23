@@ -63,6 +63,7 @@ public class GameControl : MonoBehaviour
     public int score;
     public int obstaclePoints;
     public int powerupBalancer;
+    public int pID;
     public int speedUps;
 
     public int powerupOpportunity;
@@ -148,6 +149,7 @@ public class GameControl : MonoBehaviour
         score = 0;
         obstaclePoints = 0;
         powerupBalancer = 0;
+        pID = 0;
         speedUps = 0;
         scoreText = TextObject.GetComponent<TMPro.TextMeshProUGUI>();
         scoreText.text = "0";
@@ -450,7 +452,7 @@ public class GameControl : MonoBehaviour
             TimeSpan elapsed = timer.Elapsed;
             if (elapsed.Seconds > 15 || elapsed.Minutes > 0)
             {
-                string elapsedTime = String.Format("{0:00}:{1:00}", elapsed.Minutes, elapsed.Seconds);
+                string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}", elapsed.Hours, elapsed.Minutes, elapsed.Seconds);
                 Notice.GetComponent<TMPro.TextMeshProUGUI>().text = $"CRATEPHOBIA TIMER: {elapsedTime}";
                 Notice.GetComponent<TMPro.TextMeshProUGUI>().color = new Color(1f, 0.892163f, 0.3716981f, 1f);
                 Notice.SetActive(true);
@@ -568,8 +570,9 @@ public class GameControl : MonoBehaviour
             }
         }
         Data.SaveToFile(data);
+        pID++;
         StartCoroutine(DisablePowerupText());
-        StartCoroutine(DisablePowerup(id));
+        StartCoroutine(DisablePowerup(id, pID));
     }
 
     void Shockwave() {
@@ -639,28 +642,35 @@ public class GameControl : MonoBehaviour
         powerupAnim.GetComponent<Animator>().enabled = true;
     }
 
-    IEnumerator DisablePowerup(int id) {
-        if (id == 8) yield return new WaitForSeconds(7.5f);
+    IEnumerator DisablePowerup(int id, int thisID) {
+        if (PlayerPrefs.GetInt("Relaxed") == 1) yield return new WaitForSeconds(10f);
+        else if (id == 8) yield return new WaitForSeconds(7.5f);
         else yield return new WaitForSeconds(5f);
-        if (id != 3 && id != 8) powerup = 0;
-        if (id == 2) SpikeScript.Grow(false);
-        if (id == 3) SpikeScript.Shield(false);
-        if (id == 5) SpikeScript.Shooter(false);
-        if (id == 6) {
-            superspeed = false;
-            if (inGame) Spike.GetComponent<SpriteRenderer>().sprite = Spike.GetComponent<Load>().spriteDefault;
-            var main = Speedlines.GetComponent<ParticleSystem>().main;
-            speedlinesSpeed -= 10f;
-            main.startSpeed = speedlinesSpeed;
-        }
-        if (id == 7) {
-            subspeed = false;
-            var main = Speedlines.GetComponent<ParticleSystem>().main;
-            speedlinesSpeed += 10f;
-            main.startSpeed = speedlinesSpeed;
-        }
-        if (id == 8) {
-            SpikeScript.Rocket(false);
+        if (pID == thisID)
+        {
+            if (id != 3 && id != 8) powerup = 0;
+            if (id == 2) SpikeScript.Grow(false);
+            if (id == 3) SpikeScript.Shield(false);
+            if (id == 5) SpikeScript.Shooter(false);
+            if (id == 6)
+            {
+                superspeed = false;
+                if (inGame) Spike.GetComponent<SpriteRenderer>().sprite = Spike.GetComponent<Load>().spriteDefault;
+                var main = Speedlines.GetComponent<ParticleSystem>().main;
+                speedlinesSpeed -= 10f;
+                main.startSpeed = speedlinesSpeed;
+            }
+            if (id == 7)
+            {
+                subspeed = false;
+                var main = Speedlines.GetComponent<ParticleSystem>().main;
+                speedlinesSpeed += 10f;
+                main.startSpeed = speedlinesSpeed;
+            }
+            if (id == 8)
+            {
+                SpikeScript.Rocket(false);
+            }
         }
     }
 
@@ -680,6 +690,7 @@ public class GameControl : MonoBehaviour
                 if (!SpikeScript) SpikeScript = Spike.GetComponent<Load>();
                 if (SpikeScript.looped) SpikeScript.MusicLoop.Pause();
                 else SpikeScript.MusicSource.Pause();
+                timer.Stop();
             }
             else {
                 Time.timeScale = 1;
@@ -688,9 +699,10 @@ public class GameControl : MonoBehaviour
                     TutorialMenu.SetActive(false);
                 }
                 else if (PlayerPrefs.GetInt("MusicVolume") != -1 && PlayerPrefs.GetInt("CrowdedMode") == 0)  {
-                    if (SpikeScript.looped) SpikeScript.MusicLoop.Play();
-                    else SpikeScript.MusicSource.Play();
+                    if (SpikeScript.looped && before == 2) SpikeScript.MusicLoop.Play();
+                    else if (before == 2) SpikeScript.MusicSource.Play();
                 }
+                timer.Start();
             }
             PauseMenu.SetActive(paused);
             if (!paused && SceneManager.GetActiveScene().name == "Game") TutorialMenu.SetActive(false);
@@ -738,6 +750,7 @@ public class GameControl : MonoBehaviour
         if (!lastAchievements[achievement])
         {
             Data.SpikeData data = Data.GetFromFile();
+            lastAchievements[achievement] = true;
             data.achievements[achievement] = true;
             Data.SaveToFile(data);
         }
