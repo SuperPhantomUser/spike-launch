@@ -104,7 +104,8 @@ public class Preview : MonoBehaviour
             "VOLLEY", 
             "JACK", 
             "SUNNY", 
-            "EARTH" 
+            "EARTH",
+            "SHELLY"
         };
         pTitles = new string[] { 
             "A PAINLESS PROCEDURE", 
@@ -116,7 +117,8 @@ public class Preview : MonoBehaviour
             "THE EXPERIMENT", 
             "CLEANUP CALL", 
             "FIRST FREN",
-            "ROUGH LANDING"
+            "ROUGH LANDING",
+            "WHO WAS THAT"
         };
         descs = new string[] {
             "Known for her generic looks, which can be a bother at times... She was hit by a Danger Spike one day, and since then swore to clear them out for good.",
@@ -134,7 +136,8 @@ public class Preview : MonoBehaviour
             "This spikeball was born without a mouth... or spikes. It seems to like lounging about in pools on hot summer days. What it doesn't like? Being spiked around.",
             "It's Jack, the adorable green jelly who will go to extreme lengths to annoy people! The others tried to leave him, he came along anyway.",
             "Likes playing Among Us. She wants to experience being eaten, even though she has no idea what eating is...",
-            "Oh hey, it's the third planet from the Sun! Unsure how, but now you've got it! Just... don't blow it up, okay?"
+            "Oh hey, it's the third planet from the Sun! Unsure how, but now you've got it! Just... don't blow it up, okay?",
+            "Despite being so small and delicate, Shelly crafted an outer layer of protective spikes so that they could help out others in need (but mainly because they like destroying things)."
             // He has a lot of crowns, but they're all actually just spikes! Natively speaks Mandarin for some reason... Also likes beer.
             // 
             // Sometimes, you have to defy the laws of physics for a few micro-transactions.
@@ -149,7 +152,8 @@ public class Preview : MonoBehaviour
             "Postcard bought for 250 Spike Coins. Click to view it!",
             "Postcard unlocked. Click to view it!",
             "Postcard unlocked. Click to view it!",
-            "Postcard unlocked. Click to view it!"
+            "Postcard unlocked. Click to view it!",
+            "Postcard bought for 250 Spike Coins. Click to view it!"
         };
         reqs = new string[] {
             "",
@@ -167,6 +171,7 @@ public class Preview : MonoBehaviour
             "Buy this character for $500!",
             "Buy this character for $1000!",
             "Buy this character for $1000!",
+            "Buy this character for $1000!",
             "Buy this character for $1000!"
         };
         pReqs = new string[] {
@@ -179,9 +184,10 @@ public class Preview : MonoBehaviour
             "Buy this postcard for $250!",
             "Obtain 1,000 lifetime points",
             "Obtain 2,500 lifetime points",
-            "Obtain 5,000 lifetime points"
+            "Obtain 5,000 lifetime points",
+            "Buy this postcard for $250!"
         };
-        progress = new string[16,2]
+        progress = new string[17,2]
         {
             {"", ""},
             {"lifetime", "150"},
@@ -198,9 +204,10 @@ public class Preview : MonoBehaviour
             {"", ""},
             {"", ""},
             {"", ""},
+            {"", ""},
             {"", ""}
         };
-        pProgress = new string[10,2]
+        pProgress = new string[11,2]
         {
             {"", ""},
             {"", ""},
@@ -211,7 +218,8 @@ public class Preview : MonoBehaviour
             {"", ""},
             {"lifetime", "1000"},
             {"lifetime", "2500"},
-            {"lifetime", "5000"}
+            {"lifetime", "5000"},
+            {"", ""}
         };
 
         /*
@@ -231,6 +239,7 @@ public class Preview : MonoBehaviour
         Earth: purchase
         Cory: purchase
         Sunny: purchase
+        Shelly: purchase
 
         */
 
@@ -380,8 +389,8 @@ public class Preview : MonoBehaviour
                 if (selectedSpike == 9 && skinsUnlocked[8] == false) selectedSpike = 7;
                 else selectedSpike -= 1;
             }
-            if (selectedSpike == 16) selectedSpike = 0;
-            if (selectedSpike == -1) selectedSpike = 15;
+            if (selectedSpike == 17) selectedSpike = 0;
+            if (selectedSpike == -1) selectedSpike = 16;
             transform.parent.gameObject.GetComponent<Animation>().Rewind();
             transform.parent.gameObject.GetComponent<Animation>().Play("Boingy");
             ReloadInfo();
@@ -390,8 +399,8 @@ public class Preview : MonoBehaviour
         {
             if (forward) selectedPostcard += 1;
             else selectedPostcard -= 1;
-            if (selectedPostcard == 10) selectedPostcard = 0;
-            if (selectedPostcard == -1) selectedPostcard = 9;
+            if (selectedPostcard == 11) selectedPostcard = 0;
+            if (selectedPostcard == -1) selectedPostcard = 10;
             transform.parent.gameObject.GetComponent<Animation>().Rewind();
             transform.parent.gameObject.GetComponent<Animation>().Play("Boingy");
             ReloadInfo();
@@ -464,7 +473,7 @@ public class Preview : MonoBehaviour
                 selectButton.GetComponent<Image>().color = new Color(0.988f, 0.990f, 0.555f, 1f);
                 selectText.text = "View";
             }
-            else if (selectedPostcard < 7)
+            else if (selectedPostcard < 7 || selectedPostcard == 10)
             {
                 selectTitle.text = pTitles[selectedPostcard];
                 selectDesc.text = pReqs[selectedPostcard];
@@ -538,7 +547,7 @@ public class Preview : MonoBehaviour
         }
         else
         {
-            if (selectedPostcard < 7 && !postcardsUnlocked[selectedPostcard])
+            if ((selectedPostcard < 7 || selectedPostcard == 10) && !postcardsUnlocked[selectedPostcard])
             {
                 Data.SpikeData data = Data.GetFromFile();
                 if (data.coins >= 250)

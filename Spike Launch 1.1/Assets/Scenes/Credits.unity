@@ -592,11 +592,11 @@ MonoBehaviour:
 
     Arctic_Ocean
 
-    MC Cipher
+    <color=#fcd703>MC Cipher</color>
 
     TruserUnknown
 
-    Fluffdos'
+    <color=#00a2ff>Fluffdos</color>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d4a406c35bb6fc84bba5389d216d82a3, type: 2}
   m_sharedMaterial: {fileID: -8328557808397190659, guid: d4a406c35bb6fc84bba5389d216d82a3, type: 2}

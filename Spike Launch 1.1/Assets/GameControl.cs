@@ -464,10 +464,12 @@ public class GameControl : MonoBehaviour
     IEnumerator GameOverShow() {
         yield return new WaitForSeconds(1.5f);
         GameOverMenu.SetActive(true);
+        if (PlayerPrefs.GetInt("Relaxed") == 1) GameOverMenu.GetComponent<Image>().color = new Color(0f, 0.4498f, 0.7921f, 1f);
         GameOverMenu.GetComponent<Animator>().enabled = true;
     }
 
     public void EnablePowerup(int id) {
+        if (powerup != 0) DisablePowerupNow(powerup, pID, true);
         string[] spriteList = { "CRATECEPTION", "GROW", "SHIELD", "SHOCKWAVE", "SHOOTER", "SPEED", "BUBBLE", "ROCKET" };
         Color[] colorList = { new Color(0.886f, 0.662f, 0.337f, 1f), new Color(0.7f, 0.726f, 0.174f, 1f), new Color(0.074f, 0.298f, 0.031f, 1f), new Color(0.896f, 0.789f, 0.468f, 1f), new Color(0.717f, 0f, 0.18f, 1f), new Color(1f, 0.941f, 0.298f, 1f), new Color(0.392f, 0.584f, 0.8f, 1f), new Color(0.886f, 0.603f, 0.721f, 1f) };
         PowerupText.GetComponent<Animator>().enabled = false;
@@ -642,15 +644,13 @@ public class GameControl : MonoBehaviour
         powerupAnim.GetComponent<Animator>().enabled = true;
     }
 
-    IEnumerator DisablePowerup(int id, int thisID) {
-        if (PlayerPrefs.GetInt("Relaxed") == 1) yield return new WaitForSeconds(10f);
-        else if (id == 8) yield return new WaitForSeconds(7.5f);
-        else yield return new WaitForSeconds(5f);
-        if (pID == thisID)
+    void DisablePowerupNow(int id, int thisID, bool now)
+    {
+        if (pID == thisID && powerup != 0)
         {
-            if (id != 3 && id != 8) powerup = 0;
+            powerup = 0;
             if (id == 2) SpikeScript.Grow(false);
-            if (id == 3) SpikeScript.Shield(false);
+            if (id == 3) SpikeScript.Shield(false, now);
             if (id == 5) SpikeScript.Shooter(false);
             if (id == 6)
             {
@@ -669,9 +669,16 @@ public class GameControl : MonoBehaviour
             }
             if (id == 8)
             {
-                SpikeScript.Rocket(false);
+                SpikeScript.Rocket(false, now);
             }
         }
+    }
+
+    IEnumerator DisablePowerup(int id, int thisID) {
+        if (PlayerPrefs.GetInt("Relaxed") == 1) yield return new WaitForSeconds(10f);
+        else if (id == 8) yield return new WaitForSeconds(7.5f);
+        else yield return new WaitForSeconds(5f);
+        DisablePowerupNow(id, thisID, false);
     }
 
     public void ResetPowerup() {

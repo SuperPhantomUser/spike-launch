@@ -23816,6 +23816,10 @@ PrefabInstance:
       propertyPath: GameControlObject
       value: 
       objectReference: {fileID: 1550515418}
+    - target: {fileID: 5452567841839592130, guid: 4b9dee2d9ec7c78478f34ced0b3b5553, type: 3}
+      propertyPath: GameControlObject
+      value: 
+      objectReference: {fileID: 1550515418}
     - target: {fileID: 5458586334569647229, guid: 4b9dee2d9ec7c78478f34ced0b3b5553, type: 3}
       propertyPath: GameControlObject
       value: 
