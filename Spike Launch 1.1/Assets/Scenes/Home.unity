@@ -5533,8 +5533,8 @@ MonoBehaviour:
 
     your best scores to the leaderboard!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fba7fc710960af84784332a1863259b9, type: 2}
-  m_sharedMaterial: {fileID: 2355135005819507557, guid: fba7fc710960af84784332a1863259b9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 69042cdd7f7d2cb40aa701db97ed119a, type: 2}
+  m_sharedMaterial: {fileID: -1405124405199636877, guid: 69042cdd7f7d2cb40aa701db97ed119a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6074,8 +6074,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Crowded Room Mode disables all music and sound effects.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fba7fc710960af84784332a1863259b9, type: 2}
-  m_sharedMaterial: {fileID: 2355135005819507557, guid: fba7fc710960af84784332a1863259b9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 69042cdd7f7d2cb40aa701db97ed119a, type: 2}
+  m_sharedMaterial: {fileID: -1405124405199636877, guid: 69042cdd7f7d2cb40aa701db97ed119a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

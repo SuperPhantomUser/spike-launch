@@ -323,7 +323,6 @@ public class Preview : MonoBehaviour
             if (PlayerPrefs.GetInt("GooglePlay") == 1)
             {
                 data.checkedGooglePlay = true;
-                PlayGamesPlatform.Activate();
                 Social.LoadAchievements(achievements =>
                 {
                     if (achievements.Length > 0)
