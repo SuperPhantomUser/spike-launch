@@ -199,7 +199,7 @@ public class Data : MonoBehaviour
                 data.spikes = new bool[]
                 {
                     data110.spikes[0], data110.spikes[1], data110.spikes[2], data110.spikes[3], data110.spikes[4], data110.spikes[5], data110.spikes[6],
-                    data110.spikes[7], data110.spikes[8], data110.spikes[9], data110.spikes[10], data110.spikes[11], data110.spikes[12], data110.spikes[13], data110.spikes[12], data110.spikes[13], false
+                    data110.spikes[7], data110.spikes[8], data110.spikes[9], data110.spikes[10], data110.spikes[11], data110.spikes[12], data110.spikes[13], data110.spikes[14], data110.spikes[15], false
                 };
                 data.postcards = new bool[] { data110.postcards[0], data110.postcards[1], data110.postcards[2], data110.postcards[3], data110.postcards[4], data110.postcards[5], data110.postcards[6], data110.postcards[7], data110.postcards[8], data110.postcards[9], false };
                 return data;

@@ -311,7 +311,7 @@ public class GameControl : MonoBehaviour
                     oceanColor.color = new Color(oceanColor.color.r / multiplier, oceanColor.color.g / multiplier, oceanColor.color.b / multiplier, 1f);
                 }
             }
-            if (score >= 100 && SceneManager.GetActiveScene().name == "Game" && powerups == 0) {
+            if (score >= 100 && SceneManager.GetActiveScene().name == "Game" && powerups == 0 && PlayerPrefs.GetInt("Relaxed") == 0) {
                 if (PlayerPrefs.GetInt("GooglePlay") == 1) Social.ReportProgress("CgkIqPj-8swdEAIQBw", 100.0f, (bool success) => {});
                 if (PlayerPrefs.GetInt("GooglePlay") == 0 && !lastAchievements[8])
                 {
@@ -319,7 +319,7 @@ public class GameControl : MonoBehaviour
                 }
                 GiveAchievement(8);
             }
-            if (score >= 75 && SceneManager.GetActiveScene().name == "Storm" && missed == 0) {
+            if (score >= 75 && SceneManager.GetActiveScene().name == "Storm" && missed == 0 && PlayerPrefs.GetInt("Relaxed") == 0) {
                 if (PlayerPrefs.GetInt("GooglePlay") == 1) Social.ReportProgress("CgkIqPj-8swdEAIQCA", 100.0f, (bool success) => {});
                 if (PlayerPrefs.GetInt("GooglePlay") == 0 && !lastAchievements[9])
                 {
@@ -327,7 +327,7 @@ public class GameControl : MonoBehaviour
                 }
                 GiveAchievement(9);
             }
-            if (score >= 50 && SceneManager.GetActiveScene().name == "Ocean" && crates == 0) {
+            if (score >= 50 && SceneManager.GetActiveScene().name == "Ocean" && crates == 0 && PlayerPrefs.GetInt("Relaxed") == 0) {
                 if (PlayerPrefs.GetInt("GooglePlay") == 1) Social.ReportProgress("CgkIqPj-8swdEAIQCQ", 100.0f, (bool success) => {});
                 if (PlayerPrefs.GetInt("GooglePlay") == 0 && !lastAchievements[10])
                 {
@@ -353,7 +353,7 @@ public class GameControl : MonoBehaviour
         else if (powerupBalancer >= 12 && UnityEngine.Random.Range(1, 5) > 3) {
             if (map == "Ocean") powerupOpportunity = UnityEngine.Random.Range(1, 8);
             else powerupOpportunity = UnityEngine.Random.Range(1, 7);
-            //powerupOpportunity = 5;
+            //powerupOpportunity = 3; 3 = shield, 5 = shooter/rocket
             powerupBalancer = 0;
             Instantiate(Powerup, new Vector3(0f, 6f, 0f), Quaternion.identity);
         }
@@ -650,7 +650,11 @@ public class GameControl : MonoBehaviour
         {
             powerup = 0;
             if (id == 2) SpikeScript.Grow(false);
-            if (id == 3) SpikeScript.Shield(false, now);
+            if (id == 3)
+            {
+                powerup = 3;
+                SpikeScript.Shield(false, now);
+            }
             if (id == 5) SpikeScript.Shooter(false);
             if (id == 6)
             {
@@ -669,6 +673,7 @@ public class GameControl : MonoBehaviour
             }
             if (id == 8)
             {
+                powerup = 8;
                 SpikeScript.Rocket(false, now);
             }
         }

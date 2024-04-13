@@ -159,7 +159,11 @@ public class Load : MonoBehaviour
             ShieldObj.GetComponent<Shield>().LoadGoTo(this.gameObject);
         }
         else {
-            if (now) ShieldObj.SetActive(false);
+            if (now)
+            {
+                ShieldObj.SetActive(false);
+                GameControl.powerup = 0;
+            }
             else ShieldObj.GetComponent<Animation>().Play();
         }
     }
@@ -176,6 +180,7 @@ public class Load : MonoBehaviour
         {
             if (GameControl.inGame) GetComponent<SpriteRenderer>().sprite = spriteDefault;
             GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            GameControl.powerup = 0;
         }
         else if (GameControl.inGame) StartCoroutine(RocketChange());
     }
